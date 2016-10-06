@@ -1,6 +1,4 @@
 #include "Shape.h"
-#include <iostream>
-using namespace std;
 class TwoDShape : public Shape
 {
 protected:

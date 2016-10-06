@@ -5,4 +5,5 @@ void Circle::Print()
 }
 void Circle::CountArea()
 {
+	m_cArea = 3.14 * (m_cSecondCoord - m_cFirstCoord);
 }
