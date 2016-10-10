@@ -1,4 +1,4 @@
 ﻿  Main.cpp
-d:\предметы\3 сем\кпияп\мои лабы\labs\3laba(nasledovanie)\3laba(nasledovanie)\shape.h(3): warning C4081: требуется "newline"; обнаружен ";"
+d:\предметы\3 сем\кпияп\мои лабы\labs\3laba(nasledovanie)\3laba(nasledovanie)\main.cpp(6): warning C4101: p: неиспользованная локальная переменная
   3laba(nasledovanie).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\3laba(nasledovanie)\Debug\3laba(nasledovanie).exe
   3laba(nasledovanie).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\3laba(nasledovanie)\Debug\3laba(nasledovanie).pdb (Full PDB)

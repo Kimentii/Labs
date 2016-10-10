@@ -1,10 +1,10 @@
 #include "TwoDShapes.h"
 void TwoDShape::Print()
 {
-	cout << "2D figure(" << Name << ")" << endl;
+	cout << "Name(2Dfigure):" << Name << endl;
 	if (m_cArea)
 	{
-		cout << "Area is " << m_cArea;
+		cout << "Area: " << m_cArea;
 	}
 	else
 	{

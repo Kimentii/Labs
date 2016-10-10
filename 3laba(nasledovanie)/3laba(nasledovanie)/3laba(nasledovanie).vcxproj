@@ -147,13 +147,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="ThreeDShape.h" />
+    <ClInclude Include="Triangle.h" />
+    <ClInclude Include="Rectangle.h" />
     <ClInclude Include="TwoDShapes.h" />
     <ClInclude Include="Shape.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="ThreeDShape.cpp" />
+    <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="TwoDShapes.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
