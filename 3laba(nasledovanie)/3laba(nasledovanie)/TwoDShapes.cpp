@@ -1,14 +1,10 @@
 #include "TwoDShapes.h"
-void TwoDShape::Print()
+void TwoDShape::Print()											//Переопределение функции вывода
 {
-	cout << "Name(2Dfigure):" << Name << endl;
-	if (m_cArea)
+	cout << Name << endl;										//Вывод имени фигуры
+	if (m_cArea > 0)											//Если площадь подсчтана
 	{
-		cout << "Area: " << m_cArea;
-	}
-	else
-	{
-		cout << "Please count area.";
+		cout << m_cArea;										//Вывод площиди фигуры
 	}
 	cout << endl;
 }

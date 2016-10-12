@@ -147,6 +147,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="Sphere.h" />
     <ClInclude Include="ThreeDShape.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Rectangle.h" />
@@ -154,9 +156,11 @@
     <ClInclude Include="Shape.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Rectangle.cpp" />
+    <ClCompile Include="Sphere.cpp" />
     <ClCompile Include="ThreeDShape.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="TwoDShapes.cpp" />

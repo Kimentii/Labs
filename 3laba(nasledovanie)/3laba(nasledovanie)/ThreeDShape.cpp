@@ -1,14 +1,10 @@
 #include "ThreeDShape.h"
-void ThreeDShape::Print()
+void ThreeDShape::Print()											//Переопределение функции вывода
 {
-	cout << "Name(3Dfigure):" << Name << endl;
-	if (m_cVolume)
+	cout << Name << endl;											//Вывод имени фигуры
+	if (m_cVolume > 0)												//Если объем подсчитан
 	{
-		cout << "Volume: " << m_cVolume;
-	}
-	else
-	{
-		cout << "Please count volume.";
+		cout << m_cVolume;											//Вывод объема фигуры
 	}
 	cout << endl;
 }

@@ -1,28 +1,22 @@
-#ifndef _SHAPE_H_
-#define _SHAPE_H_
+#ifndef _SHAPE_H_													//Если данное имя еще не определено
+#define _SHAPE_H_													//То определить его
 #include <iostream>
+#include <math.h>
+#pragma warning(disable : 4996)
 using namespace std;
-//class Shape;
-//class TwoDShape : public Shape {};
-//class ThreeDShape : public Shape {};
-//class Ractangle : public TwoDShape {};
-//class Circle : public TwoDShape {};
-//class Triangle : public TwoDShape {};
-//class Cylinder : public ThreeDShape {};
-//class Cube : public ThreeDShape {};
-class Shape
+class Shape															//Абстрактный класс
 {
-protected:
+protected:															//protected потому что будут наследоваться
 	char Name[80];
 public:
-	Shape(char* s = "No name")
+	Shape(char* s = "No name")										//Конструктор с параметром по умолчанию
 	{
-		//cout << "Shape constructor." << endl;
+		cout << "Shape constructor." << endl;
 		strcpy_s(Name, s);
 	}
-	virtual ~Shape() {}
-	virtual void Print() = 0;
-	virtual double CountVolume() = 0;
-	virtual double CountArea() = 0;
+	virtual ~Shape() { cout << "Shape destructor." << endl; }		//Виртуальный деструктор
+	virtual void Print() = 0;										//Чистая виртуальная функция
+	virtual double CountVolume() = 0;								//Чистая виртуальная функция
+	virtual double CountArea() = 0;									//Чистая виртуальная функция
 };
-#endif
+#endif																//Иначе не компилировать код до #endif
