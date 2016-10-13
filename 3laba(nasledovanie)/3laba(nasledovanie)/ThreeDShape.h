@@ -1,7 +1,7 @@
 #ifndef _THREEDSHAPE_H_													//Если данное имя еще не определено
 #define _THREEDSHAPE_H_													//То определить его
 #include "Shape.h"
-class ThreeDShape : public Shape
+class ThreeDShape : public Shape										//Абстрактный класс
 {
 protected:																//protected днанный, будуд наследоваться
 	int m_cVolume;

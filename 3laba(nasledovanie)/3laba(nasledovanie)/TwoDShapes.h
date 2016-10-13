@@ -1,7 +1,7 @@
 #ifndef _TWODSHAPE_H_													//Если данное имя еще не определено
 #define _TWODSHAPE_H_													//То определить его
 #include "Shape.h"
-class TwoDShape : public Shape											//Общее наследование от класса Shape
+class TwoDShape : public Shape											//Общее наследование от класса Shape(абстрактный)
 {
 protected:																//protected днанный, будуд наследоваться
 	double m_cArea;														//Площадь фигуры
