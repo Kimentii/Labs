@@ -48,6 +48,7 @@ int main()
 		p3D[1] = &I;
 		for (int i = 0; i < 2; i++)								//ƒоступ к дочерним классам через их базовый класс
 		{
+			p3D[i]->CountArea();
 			p3D[i]->CountVolume();
 			p3D[i]->Print();
 		}

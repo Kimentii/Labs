@@ -7,9 +7,10 @@ using namespace std;
 class Shape															//јбстрактный класс
 {
 protected:															//protected потому что будут наследоватьс€
+	double m_cArea;													//ѕлощадь фигуры
 	char Name[80];
 public:
-	Shape(char* s = "No name")										// онструктор с параметром по умолчанию
+	Shape(char* s = "No name", double Ar = 0.0) : m_cArea(Ar)		// онструктор с параметром по умолчанию
 	{
 		cout << "Shape constructor." << endl;
 		strcpy_s(Name, s);

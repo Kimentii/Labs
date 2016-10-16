@@ -4,7 +4,7 @@
 class ThreeDShape : public Shape										//Абстрактный класс
 {
 protected:																//protected днанный, будуд наследоваться
-	int m_cVolume;
+	double m_cVolume;
 	int X1, Y1;
 	int X2, Y2;
 public:
@@ -15,6 +15,6 @@ public:
 	}
 	void Print();														//Функция вывода
 	double CountVolume() = 0;
-	double CountArea() { return 0.0; }
+	double CountArea() = 0;
 };
 #endif																	//Иначе не компилировать код до #endif

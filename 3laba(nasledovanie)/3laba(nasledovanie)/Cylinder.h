@@ -13,6 +13,6 @@ public:
 	}
 	void Print();														//Функция вывода
 	double CountVolume();												//Функция подсчета объема
-	double CountArea() { return ThreeDShape::CountArea(); }
+	double CountArea();
 };
 #endif																	//Иначе не компилировать код до #endif

@@ -4,7 +4,12 @@ void ThreeDShape::Print()											//Переопределение функции вывода
 	cout << Name << endl;											//Вывод имени фигуры
 	if (m_cVolume > 0)												//Если объем подсчитан
 	{
-		cout << m_cVolume;											//Вывод объема фигуры
+		cout << "Volume: " << m_cVolume;							//Вывод объема фигуры
+		cout << endl;
 	}
-	cout << endl;
+	if (m_cArea > 0)
+	{
+		cout << "Area: " << m_cArea;
+		cout << endl;
+	}
 }
