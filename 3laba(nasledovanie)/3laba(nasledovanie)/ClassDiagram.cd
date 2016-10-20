@@ -38,7 +38,7 @@
   <Class Name="ThreeDShape">
     <Position X="7.25" Y="4" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAAAAAAAAAACgAAADAAAAAIABAAAAAAAAIAIEAAA=</HashCode>
+      <HashCode>AAABAAAAAQAAAACgAAADAAAAAIABAAAAAAAAIAIEAAA=</HashCode>
       <FileName>ThreeDShape.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -49,10 +49,10 @@
       <FileName>Cylinder.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sphare">
-    <Position X="9.75" Y="8" Width="1.5" />
+  <Class Name="Sphere">
+    <Position X="9.5" Y="8" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAACgQAAAAAAAAAAAAgAAAAAAAAAEAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAACgAAQAAAAAAAAAAAAAAAAAAAAMAAA=</HashCode>
       <FileName>Sphere.h</FileName>
     </TypeIdentifier>
   </Class>
