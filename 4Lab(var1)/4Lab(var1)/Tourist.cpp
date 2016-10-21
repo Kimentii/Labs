@@ -8,6 +8,14 @@ Tourist::Tourist(const char* n, const char* sn, const char* mn, int y, int p) : 
 	}
 	cout << "Tourist constructor" << endl;
 }
+int Tourist::GetPassportID()
+{
+	return m_PassportID;
+}
+const Travel* const Tourist::GetTravels()
+{
+	return m_Travels;
+}
 ostream& operator << (ostream& os, const Tourist& aT)
 {
 	os << dynamic_cast<const Human&>(aT);

@@ -4,8 +4,10 @@
 class TourBisn : public Businessman, public Tourist
 {
 private:
-	int m_Address[NUM];
+	char** m_Address;
 public:
 	TourBisn(const char* n = "", const char* sn = "", const char* mn = "", int y = 0, int l = 0, int p = 0);
+	~TourBisn();
+	const char** const GetAddress();
 	friend ostream& operator << (ostream& os, const TourBisn& aTB);
 };

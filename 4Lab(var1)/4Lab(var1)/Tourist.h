@@ -12,5 +12,7 @@ protected:
 	int m_PassportID;
 public:
 	Tourist(const char* n = "", const char* sn = "", const char* mn = "", int y = 0, int p = 0);
+	int GetPassportID();
+	const Travel* const GetTravels();
 	friend ostream& operator << (ostream& os, const Tourist& aT);
 };
