@@ -3,7 +3,7 @@ Businessman::Businessman(const char* n, const char* sn, const char* mn, int y, i
 {
 	for (int i = 0; i < NUM; i++)
 	{
-		m_Payments[i].PayDate = 0;
+		strcpy(m_Payments[i].PayDate, "");
 		m_Payments[i].Sum = 0;
 	}
 	cout << "Businessman constuctor" << endl;
@@ -15,6 +15,40 @@ int Businessman::GetLicenseNum()
 const TaxPayment* const Businessman::GetTaxPayments()
 {
 	return m_Payments;
+}
+void Businessman::SetLicenseNum(int num)
+{
+	m_LicenseNum = num;
+}
+bool Businessman::AddPayment(const char* d, int s)
+{
+	int i;
+	for (i = 0; i < NUM; i++)
+	{
+		if (m_Payments[i].Sum <= 0) break;
+	}
+	if (i < NUM)
+	{
+		strcpy(m_Payments[i].PayDate, d);
+		m_Payments[i].Sum = s;
+		return true;
+	}
+	else return false;
+}
+bool Businessman::DelPayment(const char* d)
+{
+	int i;
+	bool x = false;
+	for (i = 0; i < NUM; i++)
+	{
+		if (!strcmp(m_Payments[i].PayDate, d))
+		{
+			strcpy(m_Payments[i].PayDate, "");
+			m_Payments[i].Sum = 0;
+			x = true;
+		}
+	}
+	return x;
 }
 ostream& operator << (ostream& os, const Businessman& aB)
 {

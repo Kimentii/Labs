@@ -3,7 +3,7 @@ Tourist::Tourist(const char* n, const char* sn, const char* mn, int y, int p) : 
 {
 	for (int i = 0; i < NUM; i++)
 	{
-		m_Travels[i].Date = 0;
+		strcpy(m_Travels[i].Date, "");
 		strcpy(m_Travels[i].Country, "");
 	}
 	cout << "Tourist constructor" << endl;
@@ -15,6 +15,70 @@ int Tourist::GetPassportID()
 const Travel* const Tourist::GetTravels()
 {
 	return m_Travels;
+}
+void Tourist::SetPassportID(int p)
+{
+	m_PassportID = p;
+}
+bool Tourist::AddTravel(const char* c, const char* d)
+{
+	int i;
+	for (i = 0; i < NUM; i++)
+	{
+		if (!strlen(m_Travels[i].Date)) break;
+	}
+	if (i < NUM)
+	{
+		strcpy(m_Travels[i].Date, d);
+		strcpy(m_Travels[i].Country, c);
+		return true;
+	}
+	else return false;
+}
+bool Tourist::DelTravel(const char* c, const char* d)
+{
+	bool x = false;
+	int i;
+	if (strlen(c) && strlen(d))
+	{
+		for (i = 0; i < NUM; i++)
+		{
+			if (!strcmp(m_Travels[i].Country, c) && !strcmp(m_Travels[i].Date, d))
+			{
+				strcpy(m_Travels[i].Country, "");
+				strcpy(m_Travels[i].Date, "");
+				x = true;
+			}
+		}
+	}
+	else
+	{
+		if (strlen(c))
+		{
+			for (i = 0; i < NUM; i++)
+			{
+				if (!strcmp(m_Travels[i].Country, c))
+				{
+					strcpy(m_Travels[i].Country, "");
+					strcpy(m_Travels[i].Date, "");
+					x = true;
+				}
+			}
+		}
+		else
+		{
+			for (i = 0; i < NUM; i++)
+			{
+				if (!strcmp(m_Travels[i].Date, d))
+				{
+					strcpy(m_Travels[i].Country, "");
+					strcpy(m_Travels[i].Date, "");
+					x = true;
+				}
+			}
+		}
+	}
+	return x;
 }
 ostream& operator << (ostream& os, const Tourist& aT)
 {

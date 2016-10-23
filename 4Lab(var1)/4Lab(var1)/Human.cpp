@@ -22,6 +22,22 @@ int Human::GetYear()
 {
 	return m_YearOfBirth;
 }
+void Human::SetName(const char* n)
+{
+	strcpy(m_Name, n);
+}
+void Human::SetSurName(const char* sn)
+{
+	strcpy(m_SurName, sn);
+}
+void Human::SetMiddleName(const char* mn)
+{
+	strcpy(m_MiddleName, mn);
+}
+void Human::SetYearOfBirth(int y)
+{
+	m_YearOfBirth = y;
+}
 ostream& operator << (ostream& os,const Human& aHum)
 {
 	os << "Name: " << aHum.m_Name << endl;
