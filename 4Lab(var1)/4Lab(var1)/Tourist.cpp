@@ -1,6 +1,6 @@
 #include "Tourist.h"
 Tourist::Tourist(const char* n, const char* sn, const char* mn, int y, int p) : Human(n, sn, mn, y), m_PassportID(p)
-{
+{																			//Конструктор
 	for (int i = 0; i < NUM; i++)
 	{
 		strcpy(m_Travels[i].Date, "");
@@ -8,40 +8,40 @@ Tourist::Tourist(const char* n, const char* sn, const char* mn, int y, int p) : 
 	}
 	cout << "Tourist constructor" << endl;
 }
-int Tourist::GetPassportID()
+int Tourist::GetPassportID()												//Возвращение номера паспорта
 {
 	return m_PassportID;
 }
-const Travel* const Tourist::GetTravels()
+const Travel* const Tourist::GetTravels()									//Возвращение массива структур
 {
 	return m_Travels;
 }
-void Tourist::SetPassportID(int p)
+void Tourist::SetPassportID(int p)											//Изменение номера ппаспорта
 {
 	m_PassportID = p;
 }
-bool Tourist::AddTravel(const char* c, const char* d)
+bool Tourist::AddTravel(const char* c, const char* d)						//Добавление путешествия
 {
 	int i;
-	for (i = 0; i < NUM; i++)
+	for (i = 0; i < NUM; i++)												//Поиск пустого эелемента
 	{
 		if (!strlen(m_Travels[i].Date)) break;
 	}
-	if (i < NUM)
+	if (i < NUM)															//Если нашли то добавление
 	{
 		strcpy(m_Travels[i].Date, d);
 		strcpy(m_Travels[i].Country, c);
 		return true;
 	}
-	else return false;
+	else return false;														//Иначе не добавление элемента
 }
-bool Tourist::DelTravel(const char* c, const char* d)
+bool Tourist::DelTravel(const char* c, const char* d)						//Удаление путешествия
 {
 	bool x = false;
 	int i;
-	if (strlen(c) && strlen(d))
+	if (strlen(c) && strlen(d))												//Если введены все данные
 	{
-		for (i = 0; i < NUM; i++)
+		for (i = 0; i < NUM; i++)											//То удаление такого путешествия
 		{
 			if (!strcmp(m_Travels[i].Country, c) && !strcmp(m_Travels[i].Date, d))
 			{
@@ -53,9 +53,9 @@ bool Tourist::DelTravel(const char* c, const char* d)
 	}
 	else
 	{
-		if (strlen(c))
+		if (strlen(c))														//Если введена только страна
 		{
-			for (i = 0; i < NUM; i++)
+			for (i = 0; i < NUM; i++)										//Удаление всех путешествий с данной страной
 			{
 				if (!strcmp(m_Travels[i].Country, c))
 				{
@@ -67,7 +67,7 @@ bool Tourist::DelTravel(const char* c, const char* d)
 		}
 		else
 		{
-			for (i = 0; i < NUM; i++)
+			for (i = 0; i < NUM; i++)										//Удаление по дате
 			{
 				if (!strcmp(m_Travels[i].Date, d))
 				{
@@ -80,15 +80,33 @@ bool Tourist::DelTravel(const char* c, const char* d)
 	}
 	return x;
 }
-ostream& operator << (ostream& os, const Tourist& aT)
+ostream& operator << (ostream& os, const Tourist& aT)						//Перегрузка вывода
 {
 	os << dynamic_cast<const Human&>(aT);
-	os << "Passport ID: " << aT.m_PassportID << endl;
-	os << "Travels:" << endl;
+	os << "Passport ID: ";
+	os << aT.m_PassportID << endl;
+	os << setw(20) << "Coutnry" << setw(20) << "Date" << endl;
 	for (int i = 0; i < NUM; i++)
 	{
-		os << "Country: " << aT.m_Travels[i].Country << endl;
-		os << "Date: " << aT.m_Travels[i].Date << endl;
+		os << '[' << i << "]: ";
+		os << setw(15) << aT.m_Travels[i].Country;
+		os << setw(20) << aT.m_Travels[i].Date;
+		os << endl;
 	}
 	return os;
+}
+istream& operator >> (istream& is, Tourist& aTur)							//Перегрукза ввода
+{
+	is >> dynamic_cast<Human&>(aTur);
+	cout << "Enter passport ID: ";
+	is >> aTur.m_PassportID;
+	cout << "Enter travels: " << endl;
+	for (int i = 0; i < NUM; i++)
+	{
+		cout << "Enter date: ";
+		is >> aTur.m_Travels[i].Date;
+		cout << "Enter country: ";
+		is >> aTur.m_Travels[i].Country;
+	}
+	return is;
 }

@@ -1,97 +1,345 @@
+//Доделать ввод и вывод.
 #include "Businessman.h"
 #include "Tourist.h"
 #include "TourBisn.h"
+void TestHuman()
+{
+	Human h;
+	int n;
+	char ss[SIZE];
+	cout << "Human test";
+	cout << endl << endl;
+	cout << "Name:";
+	cin >> ss;														//Ввод имени
+	h.SetName(ss);
+	cout << "Surname: ";
+	cin >> ss;														//Ввод фамилии
+	h.SetSurName(ss);
+	cout << "Middle name: ";
+	cin >> ss;														//Ввод отчества
+	h.SetMiddleName(ss);
+	cout << "Year of birth: ";
+	cin >> n;														//Ввод года рождения
+	h.SetYearOfBirth(n);
+	cout << h;														//Вывод объекта
+	cout << endl << endl;
+}
+void TestBusinessman()
+{
+	Businessman b;
+	int n;
+	char ss[SIZE];
+	cout << "Businessman test";
+	cout << endl << endl;
+	cout << "Name:";
+	cin >> ss;														//Ввод имени
+	b.SetName(ss);
+	cout << "Surname: ";
+	cin >> ss;														//Ввод фамилии
+	b.SetSurName(ss);
+	cout << "Middle name: ";
+	cin >> ss;														//Ввод отчества
+	b.SetMiddleName(ss);
+	cout << "Year of birth: ";
+	cin >> n;														//Ввод года рождения
+	b.SetYearOfBirth(n);
+	cout << "License num: ";
+	cin >> n;														//Ввод номера лицензии
+	b.SetLicenseNum(n);
+	for (int i = 0; i < NUM; i++)									//Ввод платежей
+	{
+		cout << "Pay date: ";
+		cin >> ss;
+		cout << "Sum: ";
+		cin >> n;
+		b.AddPayment(ss, n);
+	}
+	cout << b;
+	cout << endl << endl;
+}
+void TestTourist()
+{
+	Tourist t;
+	int n;
+	char ss[SIZE];
+	cout << "Tourist test";
+	cout << endl << endl;
+	cout << "Name:";
+	cin >> ss;														//Ввод имени
+	t.SetName(ss);
+	cout << "Surname: ";
+	cin >> ss;														//Ввод фамилии
+	t.SetSurName(ss);
+	cout << "Middle name: ";
+	cin >> ss;														//Ввод отчества
+	t.SetMiddleName(ss);
+	cout << "Year of birth: ";
+	cin >> n;														//Ввод года рождения
+	t.SetYearOfBirth(n);
+	cout << "Passport ID: ";
+	cin >> n;														//Ввод номера паспорта
+	t.SetPassportID(n);
+	char s2[SIZE];
+	for (int i = 0; i < NUM; i++)									//Ввод петешествий
+	{
+		cout << "Country: ";
+		cin >> ss;
+		cout << "Date: ";
+		cin >> s2;
+		t.AddTravel(ss, s2);
+	}
+	cout << t;
+	cout << endl << endl;
+}
+void TestTourBisn()
+{
+	TourBisn tb;
+	int n;
+	char ss[SIZE];
+	cout << "TourBisn test";
+	cout << endl << endl;
+	cout << "Name:";
+	cin >> ss;														//Ввод имени
+	tb.SetName(ss);
+	cout << "Surname: ";
+	cin >> ss;														//Ввод фамилии
+	tb.SetSurName(ss);
+	cout << "Middle name: ";
+	cin >> ss;														//Ввод отчества
+	tb.SetMiddleName(ss);
+	cout << "Year of birth: ";
+	cin >> n;														//Ввод года рождения
+	tb.SetYearOfBirth(n);
+	cout << "License num: ";
+	cin >> n;														//Ввод номера лицензии
+	tb.SetLicenseNum(n);
+	cout << "Passport ID: ";
+	cin >> n;														//Ввод номера паспорта
+	tb.SetPassportID(n);
+	for (int i = 0; i < NUM; i++)									//Ввод плтежей
+	{
+		cout << "Pay date: ";
+		cin >> ss;
+		cout << "Sum: ";
+		cin >> n;
+		tb.AddPayment(ss, n);
+	}
+	char s2[SIZE];
+	for (int i = 0; i < NUM; i++)									//Ввод путешествий
+	{
+		cout << "Country: ";
+		cin >> ss;
+		cout << "Date: ";
+		cin >> s2;
+		tb.AddTravel(ss, s2);
+	}
+	cin.clear();
+	while (cin.get() != '\n');
+	int i = 1;
+	do																//Ввод адресов
+	{
+		cout << "Address: ";
+		cin.getline(ss, SIZE);
+		tb.AddAddress(ss);
+		cout << "One more address?(1/0): ";
+		cin >> i;
+		cin.clear();
+		while (cin.get() != '\n');
+	} while (i);
+	cout << tb;
+	cout << endl << endl;
+}
 int main()
 {
-	{
-		Human A("Name1", "surname", "middle name", 1998);
-		Businessman B("Name2", "surname2", "middle name2", 1999, 2222);
-		Tourist T1("Name3", "surname3", "middle name3", 2000, 3333);
-		TourBisn T2("Name4", "surname4", "middle name4", 4440, 4441, 4442, -5);
-		//A.SetName("A1");
-		//A.SetMiddleName("mA1");
-		//A.SetSurName("sA1");
-		//A.SetYearOfBirth(14);
-		//B.SetName("A1");
-		//B.SetMiddleName("mA1");
-		//B.SetSurName("sA1");
-		//B.SetYearOfBirth(14);
-		//T2.SetName("A1");
-		//T2.SetMiddleName("mA1");
-		//T2.SetSurName("sA1");
-		//T2.SetYearOfBirth(14);
-		//T2.SetLicenseNum(333);
-		//B.SetLicenseNum(42);
-		//T1.SetPassportID(NUM);
-		//T2.SetPassportID(111);
-		//B.AddPayment("1", 897);
-		//B.AddPayment("2", 100);
-		//T2.AddPayment("3", 999);
-		//T2.AddPayment("4", 999);
-		//B.DelPayment("33333");
-		//T2.DelPayment("4");
-		//T2.AddTravel("aaa", "111");
-		//T2.AddTravel("bbb", "222");	
-		//T2.AddTravel("ccc", "333");
-		//T2.AddTravel("aaa", "444");
-		//T1.AddTravel("aaa", "111");
-		//T1.AddTravel("bbb", "222");
-		//T1.AddTravel("ccc", "333");
-		//T1.DelTravel("342", "");
-		//T1.DelTravel("", "222");
-		//T1.DelTravel("ccc", "333");
-		int i = true;
-		char s[SIZE];
-		do
+	//{
+		Tourist TouristMass[3];
+		for (int i = 0; i < 3; i++)
 		{
-			cin.getline(s, SIZE);
-			T2.AddAddress(s);
-			cout << T2 << endl << endl;
-			cin >> i;
-			cin.clear();
-			while (cin.get() != '\n');
-		} while (i);
-		i = 1;
-		do
+			cout << "Vvod " << i << "tourist" << endl;
+			cin >> TouristMass[i];
+		}
+		char ss[SIZE];
+		char s2[SIZE];
+		int n;
+		cout << endl << "Your tourists:" << endl;
+		for (int i = 0; i < 3; i++)											//Вывод туристов
 		{
-			cin.getline(s, SIZE);
-			T2.DelAddress(s);
-			cout << T2 << endl << endl;
-			cin >> i;
-			cin.clear();
-			while (cin.get() != '\n');
-		} while (i);
-		/*cout << A << endl << B << endl << T1 << endl << T2 << endl;*/
-		//cout << A.GetName() << endl;
-		//cout << A.GetSurName() << endl;
-		//cout << A.GetMiddleName() << endl << endl << endl;
-		//cout << B.GetName() << endl;
-		//cout << B.GetSurName() << endl;
-		//cout << B.GetMiddleName() << endl << endl << endl;
-		//cout << T1.GetName() << endl;
-		//cout << T1.GetSurName() << endl;
-		//cout << T1.GetMiddleName() << endl << endl << endl;
-		//cout << T2.GetName() << endl;
-		//cout << T2.GetSurName() << endl;
-		//cout << T2.GetMiddleName() << endl << endl << endl;
-		//cout << A.GetYear() << endl;
-		//cout << B.GetYear() << endl;
-		//cout << T1.GetYear() << endl;
-		//cout << T2.GetYear() << endl << endl << endl;
-		//cout << B.GetLicenseNum() << endl;
-		//cout << B.GetTaxPayments()[0].PayDate << endl;
-		//cout << B.GetTaxPayments()[0].Sum << endl << endl;
-		//cout << T2.GetLicenseNum() << endl;
-		//cout << T2.GetTaxPayments()[0].PayDate << endl;
-		//cout << T2.GetTaxPayments()[0].Sum << endl << endl;
-		//cout << T1.GetPassportID() << endl;
-		//cout << T1.GetTravels()[0].Date << endl;
-		//cout << T1.GetTravels()[0].Country << endl << endl;
-		//cout << T2.GetPassportID() << endl;
-		//cout << T2.GetTravels()[0].Date << endl;
-		//cout << T2.GetTravels()[0].Country << endl << endl;
-		//cout << T2.GetAddress()[0] << endl;
-	}
+			cout << TouristMass[i];
+			cout << endl << endl;
+		}
+		for (int i = 0; i < 3; i++)											//Тест туристов
+		{
+			cout << endl << endl;
+			cout << "Name:";
+			cin >> ss;														//Ввод имени
+			TouristMass[i].SetName(ss);
+			cout << "Surname: ";
+			cin >> ss;														//Ввод фамилии
+			TouristMass[i].SetSurName(ss);
+			cout << "Middle name: ";
+			cin >> ss;														//Ввод отчества
+			TouristMass[i].SetMiddleName(ss);
+			cout << "Year of birth: ";
+			cin >> n;														//Ввод года рождения
+			TouristMass[i].SetYearOfBirth(n);
+			cout << "Passport ID: ";
+			cin >> n;														//Ввод номера паспорта
+			TouristMass[i].SetPassportID(n);
+			char s2[SIZE];
+			for (int i = 0; i < NUM; i++)									//Ввод путешествий
+			{
+				cout << "Country: ";
+				cin >> ss;
+				cout << "Date: ";
+				cin >> s2;
+				TouristMass[i].AddTravel(ss, s2);
+			}
+		}
+		cout << endl << "Your tourists:" << endl;
+		for (int i = 0; i < 3; i++)											//Вывод туристов
+		{
+			cout << TouristMass[i];
+			cout << endl << endl;
+		}
+		cout << "What do you want to delete? ";
+		cin >> ss;	
+		for (int i = 0; i < 3; i++)
+		{
+			TouristMass[i].DelTravel(ss);
+		}	
+		for (int i = 0; i < 3; i++)											//Вывод туристов
+		{
+			cout << TouristMass[i];
+			cout << endl << endl;
+		}
+	//	cout << endl << "Your bisnessmans:" << endl;						//Вывод бизнессменов
+	//	for (int i = 0; i < 3; i++)
+	//	{
+	//		cout << BisMass[i];
+	//		cout << endl << endl;
+	//	}
+	//	for (int i = 0; i < 3; i++)											//Тест Bisenessman
+	//	{
+	//		cout << "Businessman test";
+	//		cout << endl << endl;
+	//		cout << "Name:";
+	//		cin >> ss;														//Ввод имени
+	//		BisMass[i].SetName(ss);
+	//		cout << "Surname: ";
+	//		cin >> ss;														//Ввод фамилии
+	//		BisMass[i].SetSurName(ss);
+	//		cout << "Middle name: ";
+	//		cin >> ss;														//Ввод отчества
+	//		BisMass[i].SetMiddleName(ss);
+	//		cout << "Year of birth: ";
+	//		cin >> n;														//Ввод года рождения
+	//		BisMass[i].SetYearOfBirth(n);
+	//		cout << "License num: ";
+	//		cin >> n;														//Ввод номера лицензии
+	//		BisMass[i].SetLicenseNum(n);
+	//		for (int i = 0; i < NUM; i++)									//Ввод платежей
+	//		{
+	//			cout << "Pay date: ";
+	//			cin >> ss;
+	//			cout << "Sum: ";
+	//			cin >> n;
+	//			BisMass[i].AddPayment(ss, n);
+	//		}
+	//	}
+	//	cout << endl << "Your bisnessmans:" << endl;						//Вывод бизнессменов
+	//	for (int i = 0; i < 3; i++)
+	//	{
+	//		cout << BisMass[i];
+	//		cout << endl << endl;
+	//	}
+	//	cout << "What do you want to delete? ";
+	//	cin >> ss;
+	//	for (int i = 0; i < 3; i++)
+	//	{
+	//		BisMass[i].DelPayment(ss);
+	//	}
+	//	for (int i = 0; i < 3; i++)											//Вывод бизнессменов
+	//	{
+	//		cout << BisMass[i];
+	//		cout << endl << endl;
+	//	}
+	//	cout << "Yout TourBisns: " << endl;
+	//	for (int i = 0; i < 3; i++)											//Вывод TourBisn
+	//	{
+	//		cout << TBMass[i];
+	//		cout << endl << endl;
+	//	}
+	//	for (int i = 0; i < 3; i++)											//TourBisn тест
+	//	{
+	//		cout << endl << endl;
+	//		cout << "Name:";
+	//		cin >> ss;														//Ввод имени
+	//		TBMass[i].SetName(ss);
+	//		cout << "Surname: ";
+	//		cin >> ss;														//Ввод фамилии
+	//		TBMass[i].SetSurName(ss);
+	//		cout << "Middle name: ";
+	//		cin >> ss;														//Ввод отчества
+	//		TBMass[i].SetMiddleName(ss);
+	//		cout << "Year of birth: ";
+	//		cin >> n;														//Ввод года рождения
+	//		TBMass[i].SetYearOfBirth(n);
+	//		cout << "License num: ";
+	//		cin >> n;														//Ввод номера лицензии
+	//		TBMass[i].SetLicenseNum(n);
+	//		cout << "Passport ID: ";
+	//		cin >> n;														//Ввод номера паспорта
+	//		TBMass[i].SetPassportID(n);
+	//		for (int i = 0; i < NUM; i++)									//Ввод плтежей
+	//		{
+	//			cout << "Pay date: ";
+	//			cin >> ss;
+	//			cout << "Sum: ";
+	//			cin >> n;
+	//			TBMass[i].AddPayment(ss, n);
+	//		}
+	//		char s2[SIZE];
+	//		for (int i = 0; i < NUM; i++)									//Ввод путешествий
+	//		{
+	//			cout << "Country: ";
+	//			cin >> ss;
+	//			cout << "Date: ";
+	//			cin >> s2;
+	//			TBMass[i].AddTravel(ss, s2);
+	//		}
+	//		cin.clear();
+	//		while (cin.get() != '\n');
+	//		int x = 1;
+	//		do																//Ввод адресов
+	//		{
+	//			cout << "Address: ";
+	//			cin.getline(ss, SIZE);
+	//			TBMass[i].AddAddress(ss);
+	//			cout << "One more address?(1/0): ";
+	//			cin >> x;
+	//			cin.clear();
+	//			while (cin.get() != '\n');
+	//		} while (x);
+	//	}
+	//	cout << "Yout TourBisns: " << endl;
+	//	for (int i = 0; i < 3; i++)											//Вывод TourBisn
+	//	{
+	//		cout << TBMass[i];
+	//		cout << endl << endl;
+	//	}
+	//	cout << "What do you whant to delete? ";
+	//	cin >> ss;
+	//	for (int i = 0; i < 3; i++)
+	//	{
+	//		TBMass[i].DelAddress(ss);
+	//	}
+	//	cout << "Yout TourBisns: " << endl;
+	//	for (int i = 0; i < 3; i++)											//Вывод TourBisn
+	//	{
+	//		cout << TBMass[i];
+	//		cout << endl << endl;
+	//	}
+	//}
 	system("pause");
 	return 0;
 }
