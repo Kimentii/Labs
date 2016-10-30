@@ -7,6 +7,28 @@ cQueue<T>::cQueue()
 	tail = nullptr;
 }
 template <class T>
+cQueue<T>::cQueue(int size, T d)
+{
+	for (int i = 0; i < size; i++)
+	{
+		PushBack(d);
+	}
+}
+template <class T>
+cQueue<T>::cQueue(int size)
+{
+	if (size > 0)
+	{
+		head = new cQueueUnit;
+		tail = head;
+		for (int i = 0; i < (size - 1); i++)
+		{
+			tail->next = new cQueueUnit;
+			tail = tail->next;
+		}
+	}
+}
+template <class T>
 cQueue<T>::~cQueue()
 {
 	int i = 0;
@@ -16,22 +38,6 @@ cQueue<T>::~cQueue()
 		cQueueUnit* temp = head;
 		head = head->next;
 		delete temp;
-	}
-}
-//template <class T>
-//cQueue<T>::cQueue(int size)
-//{
-//	for (int i = 0; i < size; i++)
-//	{
-//		push(0);
-//	}
-//}
-template <class T>
-cQueue<T>::cQueue(int size, T d)
-{
-	for (int i = 0; i < size; i++)
-	{
-		push(d);
 	}
 }
 template <class T>
@@ -49,7 +55,7 @@ void cQueue<T>::clear()
 {
 	while (head)
 	{
-		pull();
+		PopBack();
 	}
 }
 template <class T>
@@ -77,12 +83,11 @@ int cQueue<T>::size()
 	return i;
 }
 template <class T>
-void cQueue<T>::push(T u)
+void cQueue<T>::PushBack(T u)
 {
-	cQueueUnit* temp = head;
 	if (tail)
 	{
-		tail->next = new cQueueUnit(u);
+		tail->next = new cQueueUnit(u, nullptr, tail);
 		tail = tail->next;
 	}
 	else
@@ -92,7 +97,21 @@ void cQueue<T>::push(T u)
 	}
 }
 template <class T>
-T cQueue<T>::pull()
+void cQueue<T>::PushFront(T u)
+{
+	if (head)
+	{
+		head->prev = new cQueueUnit(u, head, nullptr);
+		head = head->prev;
+	}
+	else
+	{
+		head = new cQueueUnit(u);
+		tail = head;
+	}
+}
+template <class T>
+T cQueue<T>::PopFront()
 {
 	if (head)
 	{
@@ -100,12 +119,32 @@ T cQueue<T>::pull()
 		buf = head->data;
 		cQueueUnit* temp = head;
 		head = head->next;
-		if (!head) tail = nullptr;
+		if (head) head->prev = nullptr;
+		else tail = nullptr;
 		delete temp;
 		return buf;
 	}
 	else
 	{	
+
+	}
+}
+template <class T>
+T cQueue<T>::PopBack()
+{
+	if (tail)
+	{
+		T buf;
+		buf = tail->data;
+		cQueueUnit* temp = tail;
+		tail = tail->prev;
+		if (tail) tail->next = nullptr;
+		else head = nullptr;
+		delete temp;
+		return buf;
+	}
+	else
+	{
 
 	}
 }

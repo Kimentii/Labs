@@ -1,5 +1,4 @@
 //Первый вошел первый вышел, шаблонная реализация очереди
-//Нужно дописать итератор
 #pragma once
 #include <iostream>
 using namespace std;
@@ -10,52 +9,54 @@ class cQueue
 	{
 	public:
 		T data;
-		cQueueUnit() { next = nullptr; }
-		cQueueUnit(T u) { data = u; next = nullptr; }
+		cQueueUnit() { next = nullptr; prev = nullptr; }
+		cQueueUnit(T u, cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr), data(u) {}
 		cQueueUnit* next;
+		cQueueUnit* prev;
 	} *head, *tail;
 public:
-	class iterator;
-	friend class iterator;
-	class iterator
+	class Iterator;
+	friend class Iterator;
+	class Iterator
 	{
 	public:
 		cQueueUnit* ptr;
-		iterator(cQueueUnit* tmp = nullptr) : ptr(tmp) { }
-		//iterator operator = (cQueueUnit* u)
-		//{
-		//	ptr = u;
-		//	return iterator(u);
-		//}
-		iterator operator ++ (int)
+		Iterator(cQueueUnit* tmp = nullptr) : ptr(tmp) { }
+		Iterator operator ++ (int)
 		{
-			if(ptr) return ptr = ptr->next;
-		}
-		iterator operator -- (int)
-		{
-			if (*this != begin() && this->ptr)
+			if (ptr)
 			{
-				iterator temp = begin();
-				while (temp.ptr->next != ptr)
-				{
-					temp = temp.ptr->next;
-				}
-				return iterator(temp);
+				ptr = ptr->next;
+				return Iterator(ptr);
 			}
 			else
 			{
-				return iterator(nullptr);
+				return Iterator(ptr);
 			}
 		}
-		T operator * ()
+		Iterator operator -- (int)
+		{
+			if (ptr)
+			{
+				ptr = ptr->prev;
+				return Iterator(ptr);
+			}
+			else
+			{
+				return Iterator(ptr);
+			}
+		}
+		Iterator operator ++ () { return (*this)++; };
+		Iterator operator -- () { return (*this)--; };
+		T& operator * ()
 		{
 			if (ptr) return ptr->data;
 		}
-		T operator -> ()
+		T& operator -> ()
 		{
 			if (ptr) return ptr->data;
 		}
-		bool operator == (const iterator& i)
+		bool operator == (const Iterator& i)
 		{
 			if (ptr == i.ptr)
 			{
@@ -66,7 +67,7 @@ public:
 				return false;
 			}
 		}
-		bool operator != (const iterator& i)
+		bool operator != (const Iterator& i)
 		{
 			if (ptr == i.ptr)
 			{
@@ -79,14 +80,14 @@ public:
 		}
 	};
 	cQueue();
-	//cQueue(int size);						спортный момент(надо прописывать конструктор по умолчанию) и преобразование типов
+	cQueue(int size);
 	cQueue(int size, const T d);
 	~cQueue();
-	iterator begin() { return iterator(head); }
-	iterator end() { return iterator(tail); }
-	iterator find(const T& inf)
+	Iterator begin() { return Iterator(head); }
+	Iterator end() { return Iterator(nullptr); }
+	Iterator find(const T& inf)
 	{
-		iterator it = begin();
+		Iterator it = begin();
 		while (it.ptr)
 		{
 			if (*it == inf)
@@ -95,12 +96,44 @@ public:
 			}
 			it++;
 		}
-		return iterator(nullptr);
+		return Iterator(nullptr);
 	}
 	void show();
 	void clear();
-	void push(T u);
+	void PushBack(T u);
+	void PushFront(T u);
 	bool empty();
 	int size();
-	T pull();
+	T PopFront();
+	T PopBack();
+	T& operator [] (int i)
+	{
+		if (i < size() && i >= 0)
+		{
+			cQueue::Iterator it = begin();
+			while (--i >= 0)
+			{
+				it++;
+			}
+			return *it;
+		}
+	}
+	friend ostream& operator << (ostream& os, cQueue& q)
+	{
+		cQueue::Iterator it = q.begin();
+		for (; it != q.end(); it++)
+		{
+			os << *it << endl;
+		}
+		return os;
+	}
+	friend istream& operator >> (istream& is, cQueue& q)
+	{
+		cQueue::Iterator it = q.begin();
+		for (; it != q.end(); it++)
+		{
+			is >> *it;
+		}
+		return is;
+	}
 };
