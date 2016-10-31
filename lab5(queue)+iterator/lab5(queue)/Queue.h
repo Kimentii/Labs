@@ -5,24 +5,24 @@ using namespace std;
 template <class T>
 class cQueue
 {
-	class cQueueUnit
+	class cQueueUnit													//Элемент очереди
 	{
 	public:
-		T data;
-		cQueueUnit() { next = nullptr; prev = nullptr; }
-		cQueueUnit(T u, cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr), data(u) {}
-		cQueueUnit* next;
-		cQueueUnit* prev;
-	} *head, *tail;
+		T data;															//Данные
+		cQueueUnit(cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr) { }	//Конструктор по умолчанию с 2 параметрами
+		cQueueUnit(T u, cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr), data(u) {}	//Конструктор с параметрами
+		cQueueUnit* next;												//Указатель на следующий элемент
+		cQueueUnit* prev;												//Указатель на предыдущий элемент
+	} *head, *tail;														//Начало и конечц очереди
 public:
 	class Iterator;
 	friend class Iterator;
-	class Iterator
+	class Iterator														//Класс итератор
 	{
 	public:
-		cQueueUnit* ptr;
-		Iterator(cQueueUnit* tmp = nullptr) : ptr(tmp) { }
-		Iterator operator ++ (int)
+		cQueueUnit* ptr;												//Указатель на элемент очереди
+		Iterator(cQueueUnit* tmp = nullptr) : ptr(tmp) { }				//Конструктор с одним параметром
+		Iterator operator ++ (int)										//Перемещение на сделующий элемент
 		{
 			if (ptr)
 			{
@@ -34,7 +34,7 @@ public:
 				return Iterator(ptr);
 			}
 		}
-		Iterator operator -- (int)
+		Iterator operator -- (int)										//Перемещение на предыдущий элемент
 		{
 			if (ptr)
 			{
@@ -46,17 +46,17 @@ public:
 				return Iterator(ptr);
 			}
 		}
-		Iterator operator ++ () { return (*this)++; };
-		Iterator operator -- () { return (*this)--; };
-		T& operator * ()
+		Iterator operator ++ () { return (*this)++; };					//Перемещение на следующий элемент
+		Iterator operator -- () { return (*this)--; };					//Перемещение на пердыдущий элемент
+		T& operator * ()												//Перегрузка оператора *
 		{
-			if (ptr) return ptr->data;
+			if (ptr) return ptr->data;									//Возвращение ссылки на данные
 		}
-		T& operator -> ()
+		T& operator -> ()												//Перегрузка оператора ->
 		{
-			if (ptr) return ptr->data;
+			if (ptr) return ptr->data;									//Возвращение ссылки на данные
 		}
-		bool operator == (const Iterator& i)
+		bool operator == (const Iterator& i)							//Перегрузка оператора ==
 		{
 			if (ptr == i.ptr)
 			{
@@ -67,7 +67,7 @@ public:
 				return false;
 			}
 		}
-		bool operator != (const Iterator& i)
+		bool operator != (const Iterator& i)							//Перегрузка оператора !=
 		{
 			if (ptr == i.ptr)
 			{
@@ -79,13 +79,13 @@ public:
 			}
 		}
 	};
-	cQueue();
-	cQueue(int size);
-	cQueue(int size, const T d);
-	~cQueue();
-	Iterator begin() { return Iterator(head); }
-	Iterator end() { return Iterator(nullptr); }
-	Iterator find(const T& inf)
+	cQueue();															//Конструктор по умолчанию
+	cQueue(int size);													//Конструктор с параметром размера очереди
+	cQueue(int size, const T d);										//Конструктор с двумя параметрами
+	~cQueue();															//Деструктор
+	Iterator begin() { return Iterator(head); }							//Возвращает итератор на начало очереди
+	Iterator end() { return Iterator(nullptr); }						//Возвращает итератор на конец очереди
+	Iterator find(const T& inf)											//Поиск элемента очереди
 	{
 		Iterator it = begin();
 		while (it.ptr)
@@ -98,15 +98,15 @@ public:
 		}
 		return Iterator(nullptr);
 	}
-	void show();
-	void clear();
-	void PushBack(T u);
-	void PushFront(T u);
-	bool empty();
-	int size();
-	T PopFront();
-	T PopBack();
-	T& operator [] (int i)
+	void show();														//Функция вывода очереди
+	void clear();														//Функция очистки очереди
+	void PushBack(T u);													//Добавление элемнета в конец очереди
+	void PushFront(T u);												//Добавление элемента в начало очереди
+	bool empty();														//Проверка пусткая ли очередь
+	int size();															//Возвращение размера очереди
+	T PopFront();														//Удаление элемента из начала очереди
+	T PopBack();														//Удаление элемента из конца очереди
+	T& operator [] (int i)												//Перегрузка оператора []
 	{
 		if (i < size() && i >= 0)
 		{
@@ -118,7 +118,7 @@ public:
 			return *it;
 		}
 	}
-	friend ostream& operator << (ostream& os, cQueue& q)
+	friend ostream& operator << (ostream& os, cQueue& q)				//Перегрузка вывода
 	{
 		cQueue::Iterator it = q.begin();
 		for (; it != q.end(); it++)
@@ -127,7 +127,7 @@ public:
 		}
 		return os;
 	}
-	friend istream& operator >> (istream& is, cQueue& q)
+	friend istream& operator >> (istream& is, cQueue& q)				//Перегрузка ввода
 	{
 		cQueue::Iterator it = q.begin();
 		for (; it != q.end(); it++)

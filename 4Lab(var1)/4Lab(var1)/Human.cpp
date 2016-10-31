@@ -51,7 +51,7 @@ istream& operator >> (istream& is, Human& aHum)						//Перегрузка ввода
 {
 	cout << "Enter name: ";
 	is >> aHum.m_Name;
-	cout << "Enter Surname: ";
+	cout << "Enter surname: ";
 	is >> aHum.m_SurName;
 	cout << "Enter middle name: ";
 	is >> aHum.m_MiddleName;

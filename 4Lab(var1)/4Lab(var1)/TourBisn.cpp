@@ -108,10 +108,8 @@ bool TourBisn::DelAddress(const char* a)									//Удаление адреса
 			}
 		}
 	}
-	else
-	{
-		return false;
-	}
+	return false;
+
 }
 //TourBisn TourBisn::operator = (const TourBisn& aTB)
 //{
@@ -123,41 +121,65 @@ bool TourBisn::DelAddress(const char* a)									//Удаление адреса
 ostream& operator << (ostream& os, const TourBisn& aTB)						//Перегрузка вывода
 {
 	os << dynamic_cast<const Human&>(aTB);									//Приведение к классу Human и вывод
-	os << "License number: " << aTB.m_LicenseNum << endl;
-	os << "Passport ID: " << aTB.m_PassportID << endl;
-	os << "His payments: " << endl;
-	for (int i = 0; i < NUM; i++)											//Вывод платежей
+	os << setw(20) << "Date" << setw(20) << "Sum" << endl;
+	for (int i = 0; i < NUM; i++)
 	{
-		os << "Date: " << aTB.m_Payments[i].PayDate << endl;
-		os << "Amount of money: " << aTB.m_Payments[i].Sum << endl;
+		os << '[' << i << "]: ";
+		os << setw(15) << aTB.m_Payments[i].PayDate;
+		os << setw(20) << aTB.m_Payments[i].Sum;
+		os << endl;
 	}
-	os << "Travels:" << endl;
-	for (int i = 0; i < NUM; i++)											//Вывод путешествий
+	os << setw(20) << "Coutnry" << setw(20) << "Date" << endl;
+	for (int i = 0; i < NUM; i++)
 	{
-		os << "Country: " << aTB.m_Travels[i].Country << endl;
-		os << "Date: " << aTB.m_Travels[i].Date << endl;
+		os << '[' << i << "]: ";
+		os << setw(15) << aTB.m_Travels[i].Country;
+		os << setw(20) << aTB.m_Travels[i].Date;
+		os << endl;
 	}
 	os << "Address: " << endl;
 	for (int i = 0; i < aTB.m_NumAddress; i++)
 	{
 		os << "[" << i+1 << "]: " << aTB.m_Address[i] << endl;
 	}
+	os << "License number: " << aTB.m_LicenseNum << endl;
+	os << "Passport ID: " << aTB.m_PassportID << endl;
 	return os;
 }
 istream& operator >> (istream& is, TourBisn& aTurBis)						//Перегрузка ввода
 {
 	is >> dynamic_cast<Human&>(aTurBis);									//Приведение к классу Human и ввод
+	cout << "Enter license number: ";
 	is >> aTurBis.m_LicenseNum;
+	cout << "Enter passport ID: ";
 	is >> aTurBis.m_PassportID;
+	cout << "Enter payments: " << endl;
 	for (int i = 0; i < NUM; i++)											//Ввод платежей
 	{
+		cout << "Enter date: ";
 		is >> aTurBis.m_Payments[i].PayDate;
+		cout << "Enter sum: ";
 		is >> aTurBis.m_Payments[i].Sum;
 	}
+	cout << "Enter travels" << endl;
 	for (int i = 0; i < NUM; i++)											//Ввод путешествий
 	{
+		cout << "Enter date: ";
 		is >> aTurBis.m_Travels[i].Date;
+		cout << "Enter country: ";
 		is >> aTurBis.m_Travels[i].Country;
 	}
+	int i = 1;
+	char ss[SIZE];
+	do																//Ввод адресов
+	{
+		cout << "Address: ";
+		is.getline(ss, SIZE);
+		aTurBis.AddAddress(ss);
+		cout << "One more address?(1/0): ";
+		is >> i;
+		is.clear();
+		while (is.get() != '\n');
+	} while (i);
 	return is;
 }

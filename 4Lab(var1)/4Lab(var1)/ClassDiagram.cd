@@ -1,42 +1,64 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Human">
-    <Position X="5.5" Y="0.5" Width="1.5" />
+    <Position X="5.75" Y="0.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>UAAAAABAAAAEAAAAAAAAAAAAAAAEAAABBFAgQAQABAA=</HashCode>
       <FileName>Human.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tourist">
-    <Position X="6.75" Y="4.75" Width="1.5" />
+    <Position X="7" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAQAAAAQAAAAAAAAQAABAAAAAAAAQAAABAAAAAAA=</HashCode>
       <FileName>Tourist.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Businessman">
-    <Position X="4.25" Y="4.75" Width="1.5" />
+    <Position X="4.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAIAAAAAAAEAAIAAAAABAAAAAQAQABAAAAAAA=</HashCode>
       <FileName>Businessman.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TourBisn">
-    <Position X="5.5" Y="8.25" Width="1.5" />
+    <Position X="5.75" Y="8.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABABACAAAAAAAEAAAAAAAAAAAAQEACAAAAAAAAABA=</HashCode>
       <FileName>TourBisn.h</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="cQueue&lt;T&gt;">
+    <Position X="0.75" Y="2.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="cQueue&lt;T&gt;::cQueueUnit" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\lab5(queue)\Queue.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="cQueue&lt;T&gt;::Iterator" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\lab5(queue)\Queue.h</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IEQAAAACgAAAAAAAAIAAAAASAAEAAAABDAAAAIAgAgQ=</HashCode>
+      <FileName>D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\lab5(queue)\Queue.h</FileName>
+    </TypeIdentifier>
+  </Class>
   <Struct Name="Travel">
-    <Position X="8.5" Y="4.75" Width="1.5" />
+    <Position X="8.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Tourist.h</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="TaxPayment">
-    <Position X="2.5" Y="4.75" Width="1.5" />
+    <Position X="2.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
       <FileName>Businessman.h</FileName>

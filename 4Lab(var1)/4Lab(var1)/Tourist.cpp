@@ -83,8 +83,6 @@ bool Tourist::DelTravel(const char* c, const char* d)						//Удаление путешестви
 ostream& operator << (ostream& os, const Tourist& aT)						//Перегрузка вывода
 {
 	os << dynamic_cast<const Human&>(aT);
-	os << "Passport ID: ";
-	os << aT.m_PassportID << endl;
 	os << setw(20) << "Coutnry" << setw(20) << "Date" << endl;
 	for (int i = 0; i < NUM; i++)
 	{
@@ -93,6 +91,8 @@ ostream& operator << (ostream& os, const Tourist& aT)						//Перегрузка вывода
 		os << setw(20) << aT.m_Travels[i].Date;
 		os << endl;
 	}
+	os << "Passport ID: ";
+	os << aT.m_PassportID << endl;
 	return os;
 }
 istream& operator >> (istream& is, Tourist& aTur)							//Перегрукза ввода

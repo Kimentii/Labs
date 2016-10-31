@@ -52,23 +52,29 @@ bool Businessman::DelPayment(const char* d)									//Удаление платежа
 }
 ostream& operator << (ostream& os, const Businessman& aB)					//Перегрузка вывода
 {
-	os << dynamic_cast<const Human&>(aB);									//Приведение к базовому классу и вывод
-	os << "License number: " << aB.m_LicenseNum << endl;
-	os << "His payments: " << endl;
+	os << dynamic_cast<const Human&>(aB);
+	os << setw(20) << "Date" << setw(20) << "Sum" << endl;
 	for (int i = 0; i < NUM; i++)
 	{
-		os << "Date: " << aB.m_Payments[i].PayDate << endl;
-		os << "Amount of money: " << aB.m_Payments[i].Sum << endl;
+		os << '[' << i << "]: ";
+		os << setw(15) << aB.m_Payments[i].PayDate;
+		os << setw(20) << aB.m_Payments[i].Sum;
+		os << endl;
 	}
+	os << "License number: ";
+	os << aB.m_LicenseNum << endl;
 	return os;
 }
 istream& operator >> (istream& is, Businessman& aBis)						//Перегрузка ввода
 {
 	is >> dynamic_cast<Human&>(aBis);										//Приведение к базовому классу и ввод
+	cout << "Enter license number: ";
 	is >> aBis.m_LicenseNum;
 	for (int i = 0; i < NUM; i++)
 	{
+		cout << "Enter date: ";
 		is >> aBis.m_Payments[i].PayDate;
+		cout << "Enter sum: ";
 		is >> aBis.m_Payments[i].Sum;
 	}
 	return is;

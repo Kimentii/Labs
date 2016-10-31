@@ -3,7 +3,7 @@
 #include <cstring>
 #include <iomanip>
 #pragma warning (disable:4996)
-const int NUM = 3;
+const int NUM = 1;
 const int SIZE = 80;
 using namespace std;
 class Human
