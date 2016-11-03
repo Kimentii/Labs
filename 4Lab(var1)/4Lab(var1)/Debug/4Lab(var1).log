@@ -1,6 +1,3 @@
-﻿  Main.cpp
-d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\queue.cpp(152): warning C4715: cQueue<Tourist>::PopBack: значение возвращается не при всех путях выполнения
-d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\queue.h(56): warning C4715: cQueue<Tourist>::Iterator::operator*: значение возвращается не при всех путях выполнения
-d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\queue.cpp(133): warning C4715: cQueue<Tourist>::PopFront: значение возвращается не при всех путях выполнения
+﻿  Human.cpp
   4Lab(var1).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\4Lab(var1)\Debug\4Lab(var1).exe
   4Lab(var1).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\4Lab(var1)\Debug\4Lab(var1).pdb (Full PDB)

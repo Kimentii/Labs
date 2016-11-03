@@ -16,7 +16,8 @@ void menu()
 		cout << "6 - Clear all" << endl;
 		cout << "7 - Show size" << endl;
 		cout << "0 - Exit" << endl;
-		cin >> x;
+		cout << "Your choice: ";
+		x = InputInt(0, 7);
 		switch (x)
 		{
 		case 1:

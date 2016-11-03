@@ -147,6 +147,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Businessman.h" />
+    <ClInclude Include="Exception.h" />
     <ClInclude Include="Human.h" />
     <ClInclude Include="Queue.h" />
     <ClInclude Include="TourBisn.h" />

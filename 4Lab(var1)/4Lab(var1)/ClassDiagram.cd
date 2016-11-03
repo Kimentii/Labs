@@ -29,16 +29,11 @@
     </TypeIdentifier>
   </Class>
   <Class Name="cQueue&lt;T&gt;">
-    <Position X="0.75" Y="2.5" Width="1.5" />
+    <Position X="0.75" Y="0.5" Width="1.5" />
     <Compartments>
       <Compartment Name="Nested Types" Collapsed="false" />
     </Compartments>
     <NestedTypes>
-      <Class Name="cQueue&lt;T&gt;::cQueueUnit" Collapsed="true">
-        <TypeIdentifier>
-          <NewMemberFileName>D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\lab5(queue)\Queue.h</NewMemberFileName>
-        </TypeIdentifier>
-      </Class>
       <Class Name="cQueue&lt;T&gt;::Iterator" Collapsed="true">
         <TypeIdentifier>
           <NewMemberFileName>D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\lab5(queue)\Queue.h</NewMemberFileName>
@@ -47,7 +42,49 @@
     </NestedTypes>
     <TypeIdentifier>
       <HashCode>IEQAAAACgAAAAAAAAIAAAAASAAEAAAABDAAAAIAgAgQ=</HashCode>
-      <FileName>D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\lab5(queue)\Queue.h</FileName>
+      <FileName>Queue.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Exception">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAABAAEAAAAAAAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputExp">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAABEAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="not_int">
+    <Position X="12" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAECAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="not_eng">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAABAAAEAAAAAAAAAAABAAAAAAAAAAAA=</HashCode>
+      <FileName>Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="out_of_size">
+    <Position X="10" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAEAAAAAAAAAAABAAAAAAAgAAAA=</HashCode>
+      <FileName>Exception.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="cQueueUnit&lt;T&gt;" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABQAAIAAAA=</HashCode>
+      <FileName>Queue.h</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="Travel">
