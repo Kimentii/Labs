@@ -267,8 +267,6 @@ istream& operator >> (istream& is, TourBisn& aTurBis)						//Перегрузка ввода
 		aTurBis.AddAddress(buf);
 		cout << "One more address?(1/0): ";
 		i = InputInt(is, 0, 1);
-		is.clear();
-		while (is.get() != '\n');
 	} while (i);
 	return is;
 }

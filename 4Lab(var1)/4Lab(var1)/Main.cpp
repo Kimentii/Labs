@@ -1,4 +1,3 @@
-//Дописать комментраии в Human
 #include "Businessman.h"
 #include "Tourist.h"
 #include "TourBisn.h"

@@ -26,8 +26,8 @@ public:
 	void SetYearOfBirth(int y);												//Изменения года рождения
 	friend ostream& operator << (ostream& os, const Human& aHum);			//Перегрузка вывода
 	friend istream& operator >> (istream& is, Human& aHum);					//Перегрузка ввода
-	bool operator == (const Human& aHum);
-	bool operator != (const Human& aHum);
-	bool operator > (const Human& aHum);
-	bool operator < (const Human& aHum);
+	bool operator == (const Human& aHum);									//Перегрузка ==
+	bool operator != (const Human& aHum);									//Перегрузка !=
+	bool operator > (const Human& aHum);									//Перегрузка >
+	bool operator < (const Human& aHum);									//Перегрузка <
 };

@@ -6,8 +6,8 @@ d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var
 d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\safefunctions.cpp(53): warning C4018: >: несоответствие типов со знаком и без знака
   Queue.cpp
   Main.cpp
-d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\interface.cpp(181): warning C4101: element: неиспользованная локальная переменная
-  d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\main.cpp(30): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void menu<int>(void)"
+d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\interface.cpp(138): warning C4101: element: неиспользованная локальная переменная
+  d:\предметы\3 сем\кпияп\мои лабы\labs\4lab(var1)\4lab(var1)\main.cpp(29): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void menu<int>(void)"
   Interface.cpp
   Human.cpp
   Businessman.cpp

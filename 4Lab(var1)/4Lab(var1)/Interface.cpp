@@ -11,61 +11,9 @@ void StructMenu(T& el)
 	cout << "You can't work with this element." << endl;
 }
 void StructMenu(Human& el);
-//void StructMenu(TourBisn& el)
-//{
-//	char s[SIZE];
-//	int x;
-//	cout.setf(ios::left);
-//	system("cls");
-//	do
-//	{
-//		cout << "What do you want to do?" << endl;
-//		cout << "1 - Show struct" << endl;
-//		cout << "2 - Change name" << endl;
-//		cout << "3 - Change surname" << endl;
-//		cout << "4 - Change middle name" << endl;
-//		if (!strcmp(typeid(el).name(), "Businessman"))
-//		{
-//			cout << "5 - Change license number" << endl;
-//		}
-//		if (!strcmp(typeid(el).name(), "Tourist"))
-//		{
-//			cout << "5 - Change passport ID" << endl;
-//		}
-//		if (!strcmp(typeid(el).name(), "TourBisn"))
-//		{
-//			cout << "5 - Change license number" << endl;
-//			cout << "6 - Change passport ID" << endl;
-//			cout << "7 - Add address" << endl;
-//			cout << "8 - Delete address" << endl;
-//		}
-//		cout << "0 - exit" << endl;
-//		cout << "Your choice: ";
-//		x = InputInt(cin, 0, 8);
-//		switch (x)
-//		{
-//		case 1:
-//			system("cls");
-//			cout << el << endl;
-//			break;
-//		case 2:
-//			system("cls");
-//			cout << "Enter new name: ";
-//			InputString(cin, s, SIZE);
-//			el.SetName(s);
-//			break;
-//		case 3:
-//			system("cls");
-//			break;
-//		case 4:
-//			break;
-//		case 5:
-//			break;
-//		case 6:
-//			break;
-//		}
-//	} while (x);
-//}
+void StructMenu(Businessman& el);
+void StructMenu(Tourist& el);
+void StructMenu(TourBisn& el);
 template <class T>
 void IteratorMenu(cQueue<T>& cQ)
 {
@@ -169,8 +117,16 @@ void IteratorMenu(cQueue<T>& cQ)
 			cout << "There are " << Count(cQ.begin(), cQ.end(), SafeInput<T>()) << " elements" << endl;
 			break;
 		case 15:
-			StructMenu(*it);
 			system("cls");
+			try
+			{
+				StructMenu(*it);
+			}
+			catch (wrong_element e)
+			{
+				cout << "Error is " << e.error() << endl;
+				cout << e.what() << endl;
+			}
 			break;
 		}
 	} while (x);
@@ -246,6 +202,7 @@ void menu()
 			cout << "Size: " << cQ.size() << endl;
 			break;
 		case 8:
+			system("cls");
 			IteratorMenu(cQ);
 			break;
 		case 9:

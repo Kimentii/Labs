@@ -1,6 +1,6 @@
 #pragma once
 #include "Exception.h"
-int InputInt(istream& is, int min = 0, int max = 2147483647);		//Функция воода int
+int InputInt(istream& is = cin, int min = 0, int max = 2147483647);	//Функция воода int
 void StringCheck(const char* s);									//Проверка на английский язык
 void InputString(istream& is, char* s, int size);					//Воод строки
 template <class T>

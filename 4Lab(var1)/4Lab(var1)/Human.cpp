@@ -62,22 +62,22 @@ istream& operator >> (istream& is, Human& aHum)						//Перегрузка ввода
 	aHum.m_YearOfBirth = InputInt(is, 1800, 2050);
 	return is;
 }
-bool Human::operator == (const Human& aHum)
+bool Human::operator == (const Human& aHum)							//Перегрузка ==
 {
 	if (!strcmp(m_MiddleName, aHum.m_MiddleName)) return true;
 	else return false;
 }
-bool Human::operator != (const Human& aHum)
+bool Human::operator != (const Human& aHum)							//Перегрузка !=
 {
 	if (strcmp(m_MiddleName, aHum.m_MiddleName)) return true;
 	else return false;
 }
-bool Human::operator > (const Human& aHum)
+bool Human::operator > (const Human& aHum)							//Перегрузка >
 {
 	if (strcmp(m_MiddleName, aHum.m_MiddleName) > 0) return true;
 	else return false;
 }
-bool Human::operator < (const Human& aHum)
+bool Human::operator < (const Human& aHum)							//Перегрузка <
 {
 	if (strcmp(m_MiddleName, aHum.m_MiddleName) < 0) return true;
 	else return false;
