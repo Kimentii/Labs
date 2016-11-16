@@ -1,3 +1,4 @@
+#pragma once
 #include "Queue.h"
 template <class T>
 cQueue<T>::cQueue()													//Конструктор по умолчанию
@@ -21,11 +22,11 @@ cQueue<T>::cQueue(int size)											//Констуктор с парметром размера очереди
 	cout << "cQueue constructor: " << typeid(T).name() << endl;		//Выводит тип хранения данных в очереди
 	if (size > 0)
 	{
-		head = new cQueueUnit;										//Инициализация начала очереди
+		head = new cQueueUnit<T>;									//Инициализация начала очереди
 		tail = head;
 		for (int i = 0; i < (size - 1); i++)						//Добавление элементов в хвост
 		{
-			tail->next = new cQueueUnit(nullptr, tail);
+			tail->next = new cQueueUnit<T>(nullptr, tail);
 			tail = tail->next;
 		}
 	}
@@ -37,7 +38,7 @@ cQueue<T>::~cQueue()												//Деструктор
 	while (head)
 	{
 		cout << "delete element with number: " << ++i << endl;		//Выводит количесвто удаленных элементов
-		cQueueUnit* temp = head;
+		cQueueUnit<T>* temp = head;
 		head = head->next;
 		delete temp;
 	}
@@ -45,7 +46,7 @@ cQueue<T>::~cQueue()												//Деструктор
 template <class T>
 void cQueue<T>::show()												//Вывод очереди
 {
-	cQueueUnit* temp = head;
+	cQueueUnit<T>* temp = head;
 	while (temp)													//Пока не конец очереди
 	{
 		cout << temp->data << endl;									//Вывод данных из нее
@@ -75,7 +76,7 @@ bool cQueue<T>::empty()												//Проверка наличия элементов
 template <class T>
 int cQueue<T>::size()												//Возвращает размер очереди
 {
-	cQueueUnit* temp = head;
+	cQueueUnit<T>* temp = head;
 	int i = 0;
 	while (temp)													//Проходит до конца очереди и считает все элементы
 	{
@@ -89,12 +90,12 @@ void cQueue<T>::PushBack(T u)										//Добавление элемента в конец очереди
 {
 	if (tail)														//Если очередь уже содержит элементы
 	{
-		tail->next = new cQueueUnit(u, nullptr, tail);				//То добовляем еще один
+		tail->next = new cQueueUnit<T>(u, nullptr, tail);			//То добовляем еще один
 		tail = tail->next;
 	}
 	else
 	{
-		head = new cQueueUnit(u);									//Иначе инициализируем очередь
+		head = new cQueueUnit<T>(u);								//Иначе инициализируем очередь
 		tail = head;
 	}
 }
@@ -103,12 +104,12 @@ void cQueue<T>::PushFront(T u)										//Добавление элемента в начало очереди
 {
 	if (head)														//Если очередь есть
 	{
-		head->prev = new cQueueUnit(u, head, nullptr);				//Добовляем элемент в начало
+		head->prev = new cQueueUnit<T>(u, head, nullptr);			//Добовляем элемент в начало
 		head = head->prev;
 	}
 	else
 	{
-		head = new cQueueUnit(u);									//Иначе создаем первый элемент очереди
+		head = new cQueueUnit<T>(u);								//Иначе создаем первый элемент очереди
 		tail = head;
 	}
 }
@@ -119,7 +120,7 @@ T cQueue<T>::PopFront()												//Удаление элемента из начала очереди
 	{
 		T buf;
 		buf = head->data;											//Переписываем данные из элемента
-		cQueueUnit* temp = head;
+		cQueueUnit<T>* temp = head;
 		head = head->next;											//Переносим начало очереди
 		if (head) head->prev = nullptr;
 		else tail = nullptr;
@@ -138,7 +139,7 @@ T cQueue<T>::PopBack()												//Удаление элемента из конца очереди
 	{
 		T buf;
 		buf = tail->data;											//Сохраненые данных из элемента
-		cQueueUnit* temp = tail;
+		cQueueUnit<T>* temp = tail;
 		tail = tail->prev;											//Перенос конца очереди
 		if (tail) tail->next = nullptr;
 		else head = nullptr;

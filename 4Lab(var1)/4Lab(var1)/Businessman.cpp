@@ -1,4 +1,5 @@
 #include "Businessman.h"
+#include "SafeFunctions.h"
 Businessman::Businessman(const char* n, const char* sn, const char* mn, int y, int l) : Human(n, sn, mn, y), m_LicenseNum(l)
 {																			//Конструктор
 	for (int i = 0; i < NUM; i++)											//Зануление строк
@@ -69,13 +70,32 @@ istream& operator >> (istream& is, Businessman& aBis)						//Перегрузка ввода
 {
 	is >> dynamic_cast<Human&>(aBis);										//Приведение к базовому классу и ввод
 	cout << "Enter license number: ";
-	is >> aBis.m_LicenseNum;
+	aBis.m_LicenseNum = InputInt(is, 0);
 	for (int i = 0; i < NUM; i++)
 	{
-		cout << "Enter date: ";
-		is >> aBis.m_Payments[i].PayDate;
+		char buf[256];
+		while (1)
+		{
+			cout << "Enter date: ";
+			is >> buf;
+			try
+			{
+				if ((strlen(buf) + 1) > SIZE)
+				{
+					throw out_of_size();
+				}
+				break;
+			}
+			catch (InputExp& ne)
+			{
+				cout << "Number of error is " << ne.error() << endl;
+				cout << ne.what() << endl;
+				continue;
+			}
+		}
+		strcpy(aBis.m_Payments[i].PayDate, buf);
 		cout << "Enter sum: ";
-		is >> aBis.m_Payments[i].Sum;
+		aBis.m_Payments[i].Sum = InputInt(is);
 	}
 	return is;
 }

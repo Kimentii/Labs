@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cstring>
 #include <iomanip>
+#include "SafeFunctions.h"
 #pragma warning (disable:4996)
 const int NUM = 1;
 const int SIZE = 80;
@@ -25,4 +26,8 @@ public:
 	void SetYearOfBirth(int y);												//Изменения года рождения
 	friend ostream& operator << (ostream& os, const Human& aHum);			//Перегрузка вывода
 	friend istream& operator >> (istream& is, Human& aHum);					//Перегрузка ввода
+	bool operator == (const Human& aHum);
+	bool operator != (const Human& aHum);
+	bool operator > (const Human& aHum);
+	bool operator < (const Human& aHum);
 };

@@ -1,3 +1,4 @@
+#pragma once
 #include "Queue.h"
 template <class T>
 cQueue<T>::cQueue()													//Конструктор по умолчанию
@@ -21,11 +22,11 @@ cQueue<T>::cQueue(int size)											//Констуктор с парметром размера очереди
 	cout << "cQueue constructor: " << typeid(T).name() << endl;		//Выводит тип хранения данных в очереди
 	if (size > 0)
 	{
-		head = new cQueueUnit;										//Инициализация начала очереди
+		head = new cQueueUnit<T>;									//Инициализация начала очереди
 		tail = head;
 		for (int i = 0; i < (size - 1); i++)						//Добавление элементов в хвост
 		{
-			tail->next = new cQueueUnit(nullptr, tail);
+			tail->next = new cQueueUnit<T>(nullptr, tail);
 			tail = tail->next;
 		}
 	}
@@ -85,7 +86,7 @@ int cQueue<T>::size()												//Возвращает размер очереди
 	return i;
 }
 template <class T>
-void cQueue<T>::PushBack(T u)										//Добавление элемента в конец очереди
+void cQueue<T>::PushBack(const T& u)								//Добавление элемента в конец очереди
 {
 	if (tail)														//Если очередь уже содержит элементы
 	{
@@ -99,7 +100,7 @@ void cQueue<T>::PushBack(T u)										//Добавление элемента в конец очереди
 	}
 }
 template <class T>
-void cQueue<T>::PushFront(T u)										//Добавление элемента в начало очереди
+void cQueue<T>::PushFront(const T& u)								//Добавление элемента в начало очереди
 {
 	if (head)														//Если очередь есть
 	{
@@ -117,8 +118,7 @@ T cQueue<T>::PopFront()												//Удаление элемента из начала очереди
 {
 	if (head)														//Если очередь содержит элементы
 	{
-		T buf;
-		buf = head->data;											//Переписываем данные из элемента
+		T buf = head->data;											//Переписываем данные из элемента
 		cQueueUnit<T>* temp = head;
 		head = head->next;											//Переносим начало очереди
 		if (head) head->prev = nullptr;
@@ -128,7 +128,7 @@ T cQueue<T>::PopFront()												//Удаление элемента из начала очереди
 	}
 	else
 	{
-
+		throw QueueExp();
 	}
 }
 template <class T>
@@ -136,8 +136,7 @@ T cQueue<T>::PopBack()												//Удаление элемента из конца очереди
 {
 	if (tail)														//Если очередь содержит элементы
 	{
-		T buf;
-		buf = tail->data;											//Сохраненые данных из элемента
+		T buf = tail->data;											//Сохраненые данных из элемента
 		cQueueUnit<T>* temp = tail;
 		tail = tail->prev;											//Перенос конца очереди
 		if (tail) tail->next = nullptr;
@@ -147,6 +146,6 @@ T cQueue<T>::PopBack()												//Удаление элемента из конца очереди
 	}
 	else
 	{
-
+		throw QueueExp();
 	}
 }

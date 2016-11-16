@@ -1,193 +1,58 @@
-//Доделать ввод и вывод.
-//Сделать шапку и вывод отдельно 
-//Дописать комментарии
-//Везде сделать исключения
-//Доделать менюшку
+//Дописать комментраии в Human
 #include "Businessman.h"
 #include "Tourist.h"
 #include "TourBisn.h"
 #include "Queue.cpp"
 #include "Interface.cpp"
 #include "Exception.h"
-int InputInt(int min, int max)
+#include "SafeFunctions.h"
+void choise()
 {
-	int num;
-	while (1)
+	int x;
+	cout.setf(ios::left);
+	do
 	{
-		cin >> num;
-		try
+		cout << "What type do you want to check?" << endl;		//Вывод меню
+		cout << "1 - int" << endl;
+		cout << "2 - double" << endl;
+		cout << "3 - char" << endl;
+		cout << "4 - Human" << endl;
+		cout << "5 - Tourist" << endl;
+		cout << "6 - Businesman" << endl;
+		cout << "7 - TourBissn" << endl;
+		cout << "0 - exit" << endl;
+		cout << "Your choice: ";
+		x = InputInt(cin, 0, 7);								//Ввод выбора
+		system("cls");
+		switch (x)												//Вызов соответствующей функции
 		{
-			if (cin.fail())
-			{
-				throw new not_int();
-			}
-			if (num < min || num > max)
-			{
-				throw new out_of_size();
-			}
+		case 1:
+			menu<int>();
+			break;
+		case 2:
+			menu<double>();
+			break;
+		case 3:
+			menu<char>();
+			break;
+		case 4:
+			menu<Human>();
+			break;
+		case 5:
+			menu<Tourist>();
+			break;
+		case 6:
+			menu<Businessman>();
+			break;
+		case 7:
+			menu<TourBisn>();
+			break;
 		}
-		catch (InputExp* exp)
-		{
-			cin.clear();
-			while (cin.get() != '\n');
-			cout << "Number of error is " << exp->error() << endl;
-			cout << exp->what() << endl;
-			delete exp;
-			continue;
-		}
-		return num;
-	}
-}
-void TestHuman()
-{
-	Human h;
-	int n;
-	char ss[SIZE];
-	cout << "Human test";
-	cout << endl << endl;
-	cout << "Name:";
-	cin >> ss;														//Ввод имени
-	h.SetName(ss);
-	cout << "Surname: ";
-	cin >> ss;														//Ввод фамилии
-	h.SetSurName(ss);
-	cout << "Middle name: ";
-	cin >> ss;														//Ввод отчества
-	h.SetMiddleName(ss);
-	cout << "Year of birth: ";
-	cin >> n;														//Ввод года рождения
-	h.SetYearOfBirth(n);
-	cout << h;														//Вывод объекта
-	cout << endl << endl;
-}
-void TestBusinessman()
-{
-	Businessman b;
-	int n;
-	char ss[SIZE];
-	cout << "Businessman test";
-	cout << endl << endl;
-	cout << "Name:";
-	cin >> ss;														//Ввод имени
-	b.SetName(ss);
-	cout << "Surname: ";
-	cin >> ss;														//Ввод фамилии
-	b.SetSurName(ss);
-	cout << "Middle name: ";
-	cin >> ss;														//Ввод отчества
-	b.SetMiddleName(ss);
-	cout << "Year of birth: ";
-	cin >> n;														//Ввод года рождения
-	b.SetYearOfBirth(n);
-	cout << "License num: ";
-	cin >> n;														//Ввод номера лицензии
-	b.SetLicenseNum(n);
-	for (int i = 0; i < NUM; i++)									//Ввод платежей
-	{
-		cout << "Pay date: ";
-		cin >> ss;
-		cout << "Sum: ";
-		cin >> n;
-		b.AddPayment(ss, n);
-	}
-	cout << b;
-	cout << endl << endl;
-}
-void TestTourist()
-{
-	Tourist t;
-	int n;
-	char ss[SIZE];
-	cout << "Tourist test";
-	cout << endl << endl;
-	cout << "Name:";
-	cin >> ss;														//Ввод имени
-	t.SetName(ss);
-	cout << "Surname: ";
-	cin >> ss;														//Ввод фамилии
-	t.SetSurName(ss);
-	cout << "Middle name: ";
-	cin >> ss;														//Ввод отчества
-	t.SetMiddleName(ss);
-	cout << "Year of birth: ";
-	cin >> n;														//Ввод года рождения
-	t.SetYearOfBirth(n);
-	cout << "Passport ID: ";
-	cin >> n;														//Ввод номера паспорта
-	t.SetPassportID(n);
-	char s2[SIZE];
-	for (int i = 0; i < NUM; i++)									//Ввод петешествий
-	{
-		cout << "Country: ";
-		cin >> ss;
-		cout << "Date: ";
-		cin >> s2;
-		t.AddTravel(ss, s2);
-	}
-	cout << t;
-	cout << endl << endl;
-}
-void TestTourBisn()
-{
-	TourBisn tb;
-	int n;
-	char ss[SIZE];
-	cout << "TourBisn test";
-	cout << endl << endl;
-	cout << "Name:";
-	cin >> ss;														//Ввод имени
-	tb.SetName(ss);
-	cout << "Surname: ";
-	cin >> ss;														//Ввод фамилии
-	tb.SetSurName(ss);
-	cout << "Middle name: ";
-	cin >> ss;														//Ввод отчества
-	tb.SetMiddleName(ss);
-	cout << "Year of birth: ";
-	cin >> n;														//Ввод года рождения
-	tb.SetYearOfBirth(n);
-	cout << "License num: ";
-	cin >> n;														//Ввод номера лицензии
-	tb.SetLicenseNum(n);
-	cout << "Passport ID: ";
-	cin >> n;														//Ввод номера паспорта
-	tb.SetPassportID(n);
-	for (int i = 0; i < NUM; i++)									//Ввод плтежей
-	{
-		cout << "Pay date: ";
-		cin >> ss;
-		cout << "Sum: ";
-		cin >> n;
-		tb.AddPayment(ss, n);
-	}
-	char s2[SIZE];
-	for (int i = 0; i < NUM; i++)									//Ввод путешествий
-	{
-		cout << "Country: ";
-		cin >> ss;
-		cout << "Date: ";
-		cin >> s2;
-		tb.AddTravel(ss, s2);
-	}
-	cin.clear();
-	while (cin.get() != '\n');
-	int i = 1;
-	do																//Ввод адресов
-	{
-		cout << "Address: ";
-		cin.getline(ss, SIZE);
-		tb.AddAddress(ss);
-		cout << "One more address?(1/0): ";
-		cin >> i;
-		cin.clear();
-		while (cin.get() != '\n');
-	} while (i);
-	cout << tb;
-	cout << endl << endl;
+	} while (x);
 }
 int main()
 {
-	menu<Tourist>();
+	choise();
 	system("pause");
 	return 0;
 }

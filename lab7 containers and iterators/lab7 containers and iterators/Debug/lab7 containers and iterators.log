@@ -1,0 +1,5 @@
+﻿  Main.cpp
+d:\предметы\3 сем\кпияп\мои лабы\labs\lab7 containers and iterators\lab7 containers and iterators\interface.cpp(77): warning C4101: element: неиспользованная локальная переменная
+  d:\предметы\3 сем\кпияп\мои лабы\labs\lab7 containers and iterators\lab7 containers and iterators\main.cpp(28): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void menu<int>(void)"
+  lab7 containers and iterators.vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab7 containers and iterators\Debug\lab7 containers and iterators.exe
+  lab7 containers and iterators.vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab7 containers and iterators\Debug\lab7 containers and iterators.pdb (Full PDB)

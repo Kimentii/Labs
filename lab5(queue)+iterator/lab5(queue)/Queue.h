@@ -3,25 +3,27 @@
 #include <iostream>
 using namespace std;
 template <class T>
+class cQueueUnit														//Элемент очереди
+{
+public:
+	T data;																//Данные
+	cQueueUnit(cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr) { }	//Конструктор по умолчанию с 2 параметрами
+	cQueueUnit(T u, cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr), data(u) {}	//Конструктор с параметрами
+	cQueueUnit* next;													//Указатель на следующий элемент
+	cQueueUnit* prev;													//Указатель на предыдущий элемент
+};
+template <class T>
 class cQueue
 {
-	class cQueueUnit													//Элемент очереди
-	{
-	public:
-		T data;															//Данные
-		cQueueUnit(cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr) { }	//Конструктор по умолчанию с 2 параметрами
-		cQueueUnit(T u, cQueueUnit* nt = nullptr, cQueueUnit* pr = nullptr) : next(nt), prev(pr), data(u) {}	//Конструктор с параметрами
-		cQueueUnit* next;												//Указатель на следующий элемент
-		cQueueUnit* prev;												//Указатель на предыдущий элемент
-	} *head, *tail;														//Начало и конечц очереди
+	 cQueueUnit<T> *head, *tail;										//Начало и конечц очереди
 public:
 	class Iterator;
 	friend class Iterator;
 	class Iterator														//Класс итератор
 	{
 	public:
-		cQueueUnit* ptr;												//Указатель на элемент очереди
-		Iterator(cQueueUnit* tmp = nullptr) : ptr(tmp) { }				//Конструктор с одним параметром
+		cQueueUnit<T>* ptr;												//Указатель на элемент очереди
+		Iterator(cQueueUnit<T>* tmp = nullptr) : ptr(tmp) { }			//Конструктор с одним параметром
 		Iterator operator ++ (int)										//Перемещение на сделующий элемент
 		{
 			if (ptr)
@@ -85,6 +87,8 @@ public:
 	~cQueue();															//Деструктор
 	Iterator begin() { return Iterator(head); }							//Возвращает итератор на начало очереди
 	Iterator end() { return Iterator(nullptr); }						//Возвращает итератор на конец очереди
+	Iterator rbegin() { return Iterator(tail); }
+	Iterator rend() { return Iterator(nullptr); }
 	Iterator find(const T& inf)											//Поиск элемента очереди
 	{
 		Iterator it = begin();

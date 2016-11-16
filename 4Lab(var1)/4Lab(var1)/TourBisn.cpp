@@ -44,6 +44,10 @@ TourBisn::TourBisn(const TourBisn& aTurBis)									//Конструктор копирования
 			strcpy(m_Address[i], aTurBis.m_Address[i]);
 		}
 	}
+	else
+	{
+		m_Address = nullptr;
+	}
 }
 TourBisn::~TourBisn()														//Деструктор
 {
@@ -111,13 +115,42 @@ bool TourBisn::DelAddress(const char* a)									//Удаление адреса
 	return false;
 
 }
-//TourBisn TourBisn::operator = (const TourBisn& aTB)
-//{
-//	dynamic_cast<Tourist&>(*this) = dynamic_cast<const Tourist&>(aTB);
-//	this->m_NumAddress = 0;
-//	this->m_Address = nullptr;
-//	return (*this);
-//}
+TourBisn TourBisn::operator = (const TourBisn& aTurBis)
+{
+	for (int i = 0; i < m_NumAddress; i++)
+	{
+		delete[] m_Address[i];
+	}
+	delete[] m_Address;
+	strcpy(m_Name, aTurBis.m_Name);											//Копирование переменных данных
+	strcpy(m_SurName, aTurBis.m_SurName);
+	strcpy(m_MiddleName, aTurBis.m_MiddleName);
+	m_NumAddress = aTurBis.m_NumAddress;
+	m_LicenseNum = aTurBis.m_LicenseNum;
+	m_PassportID = aTurBis.m_PassportID;
+	m_YearOfBirth = aTurBis.m_YearOfBirth;
+	for (int i = 0; i < NUM; i++)											//Копирование путешествий и плтежей
+	{
+		strcpy(m_Travels[i].Country, aTurBis.m_Travels[i].Country);
+		strcpy(m_Travels[i].Date, aTurBis.m_Travels[i].Date);
+		strcpy(m_Payments[i].PayDate, aTurBis.m_Payments[i].PayDate);
+		m_Payments[i].Sum = aTurBis.m_Payments[i].Sum;
+	}
+	if (aTurBis.m_NumAddress > 0)											//Переписывание динамическиз данных
+	{
+		m_Address = new char*[aTurBis.m_NumAddress];
+		for (int i = 0; i < aTurBis.m_NumAddress; i++)
+		{
+			m_Address[i] = new char[SIZE];
+			strcpy(m_Address[i], aTurBis.m_Address[i]);
+		}
+	}
+	else
+	{
+		m_Address = nullptr;
+	}
+	return *this;
+}
 ostream& operator << (ostream& os, const TourBisn& aTB)						//Перегрузка вывода
 {
 	os << dynamic_cast<const Human&>(aTB);									//Приведение к классу Human и вывод
@@ -150,34 +183,90 @@ istream& operator >> (istream& is, TourBisn& aTurBis)						//Перегрузка ввода
 {
 	is >> dynamic_cast<Human&>(aTurBis);									//Приведение к классу Human и ввод
 	cout << "Enter license number: ";
-	is >> aTurBis.m_LicenseNum;
+	aTurBis.m_LicenseNum = InputInt(is);
 	cout << "Enter passport ID: ";
-	is >> aTurBis.m_PassportID;
+	aTurBis.m_PassportID = InputInt(is);
 	cout << "Enter payments: " << endl;
 	for (int i = 0; i < NUM; i++)											//Ввод платежей
 	{
-		cout << "Enter date: ";
-		is >> aTurBis.m_Payments[i].PayDate;
+		char buf[256];
+		while (1)
+		{
+			cout << "Enter date: ";
+			is >> buf;
+			try
+			{
+				if ((strlen(buf) + 1) > SIZE)
+				{
+					throw out_of_size();
+				}
+				break;
+			}
+			catch (InputExp& ne)
+			{
+				cout << "Number of error is " << ne.error() << endl;
+				cout << ne.what() << endl;
+				continue;
+			}
+		}
+		strcpy(aTurBis.m_Payments[i].PayDate, buf);
 		cout << "Enter sum: ";
-		is >> aTurBis.m_Payments[i].Sum;
+		aTurBis.m_Payments[i].Sum = InputInt(is);
 	}
 	cout << "Enter travels" << endl;
 	for (int i = 0; i < NUM; i++)											//Ввод путешествий
 	{
-		cout << "Enter date: ";
-		is >> aTurBis.m_Travels[i].Date;
+		char buf[256];
+		while (1)
+		{
+			cout << "Enter date: ";
+			is >> buf;
+			try
+			{
+				if ((strlen(buf) + 1) > SIZE)
+				{
+					throw out_of_size();
+				}
+				break;
+			}
+			catch (InputExp& ne)
+			{
+				cout << "Number of error is " << ne.error() << endl;
+				cout << ne.what() << endl;
+				continue;
+			}
+		}
+		strcpy(aTurBis.m_Travels[i].Date, buf);
 		cout << "Enter country: ";
-		is >> aTurBis.m_Travels[i].Country;
+		InputString(is, aTurBis.m_Travels[i].Country, SIZE);
 	}
 	int i = 1;
 	char ss[SIZE];
 	do																//Ввод адресов
 	{
-		cout << "Address: ";
-		is.getline(ss, SIZE);
-		aTurBis.AddAddress(ss);
+		char buf[256];
+		while (1)
+		{
+			cout << "Address: ";
+			is >> buf;
+			try
+			{
+				if ((strlen(buf) + 1) > SIZE)
+				{
+					throw out_of_size();
+				}
+				break;
+			}
+			catch (InputExp& ne)
+			{
+				cout << "Number of error is " << ne.error() << endl;
+				cout << ne.what() << endl;
+				continue;
+			}
+		}
+		aTurBis.AddAddress(buf);
 		cout << "One more address?(1/0): ";
-		is >> i;
+		i = InputInt(is, 0, 1);
 		is.clear();
 		while (is.get() != '\n');
 	} while (i);

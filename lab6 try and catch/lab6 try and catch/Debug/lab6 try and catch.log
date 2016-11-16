@@ -1,0 +1,10 @@
+﻿  SafeFunctions.cpp
+d:\предметы\3 сем\кпияп\мои лабы\labs\lab6 try and catch\lab6 try and catch\safefunctions.cpp(53): warning C4018: >: несоответствие типов со знаком и без знака
+  Queue.cpp
+  Main.cpp
+d:\предметы\3 сем\кпияп\мои лабы\labs\lab6 try and catch\lab6 try and catch\interface.cpp(77): warning C4101: element: неиспользованная локальная переменная
+  d:\предметы\3 сем\кпияп\мои лабы\labs\lab6 try and catch\lab6 try and catch\main.cpp(25): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void menu<int>(void)"
+  Interface.cpp
+  Создание кода...
+  lab6 try and catch.vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab6 try and catch\Debug\lab6 try and catch.exe
+  lab6 try and catch.vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab6 try and catch\Debug\lab6 try and catch.pdb (Full PDB)

@@ -99,14 +99,33 @@ istream& operator >> (istream& is, Tourist& aTur)							//Перегрукза ввода
 {
 	is >> dynamic_cast<Human&>(aTur);
 	cout << "Enter passport ID: ";
-	is >> aTur.m_PassportID;
+	aTur.m_PassportID = InputInt(is);
 	cout << "Enter travels: " << endl;
 	for (int i = 0; i < NUM; i++)
 	{
-		cout << "Enter date: ";
-		is >> aTur.m_Travels[i].Date;
+		char buf[256];
+		while (1)
+		{
+			cout << "Enter date: ";
+			is >> buf;
+			try
+			{
+				if ((strlen(buf) + 1) > SIZE)
+				{
+					throw out_of_size();
+				}
+				break;
+			}
+			catch (InputExp& ne)
+			{
+				cout << "Number of error is " << ne.error() << endl;
+				cout << ne.what() << endl;
+				continue;
+			}
+		}
+		strcpy(aTur.m_Travels[i].Date, buf);
 		cout << "Enter country: ";
-		is >> aTur.m_Travels[i].Country;
+		InputString(is, aTur.m_Travels[i].Country, SIZE);
 	}
 	return is;
 }

@@ -14,7 +14,7 @@ public:
 	int GetNumAddress();														//Возвращение количества строк
 	void AddAddress(const char* a);												//Добавление адреса
 	bool DelAddress(const char* a);												//Удаление адреса
-	//TourBisn operator = (const TourBisn& aTB);
+	TourBisn operator = (const TourBisn& aTB);
 	friend ostream& operator << (ostream& os, const TourBisn& aTB);				//Перегрузка вывода
 	friend istream& operator >> (istream& is, TourBisn& aTurBis);				//Перегрузка ввода
 };
