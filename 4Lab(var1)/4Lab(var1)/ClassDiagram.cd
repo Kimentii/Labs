@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
   <Class Name="Human">
     <Position X="1.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>UAAAAABAAAAEAAAAAAAAAAAAAAAEAAABBFAgQAQABAA=</HashCode>
+      <HashCode>UAAAAABAAAAEAAAAAAAAAQAAAAAEAAABBFAgQAQABAA=</HashCode>
       <FileName>Human.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Tourist">
-    <Position X="2.75" Y="5" Width="1.5" />
+    <Position X="2.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAQAAAAQAAAAAAAAQAABAAAAAAAAQAAABAAAAAAA=</HashCode>
       <FileName>Tourist.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Businessman">
-    <Position X="0.5" Y="5" Width="1.5" />
+    <Position X="0.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAABAAAIAAAAAAAEAAIAAAAABAAAAAQAQABAAAAAAA=</HashCode>
       <FileName>Businessman.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TourBisn">
-    <Position X="1.75" Y="8.5" Width="1.5" />
+    <Position X="1.75" Y="9.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAABABACAAAAAAAEAAAAAAAAAAAAQEACAAAgAAAAABA=</HashCode>
       <FileName>TourBisn.h</FileName>
@@ -41,7 +41,7 @@
       </Class>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>IEQAAAACgAAAAAAAAIAAAAASAAEAAAABDAAAAIAgAgQ=</HashCode>
+      <HashCode>IEQAAAACgAAAAAAAAKAAAAASAIEAAAABDAAAAIAkAgQ=</HashCode>
       <FileName>Queue.h</FileName>
     </TypeIdentifier>
   </Class>

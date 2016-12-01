@@ -22,8 +22,9 @@ public:
 	friend class Iterator;
 	class Iterator														//Класс итератор
 	{
+		cQueueUnit<T>* ptr;
 	public:
-		cQueueUnit<T>* ptr;												//Указатель на элемент очереди
+												//Указатель на элемент очереди
 		Iterator(cQueueUnit<T>* tmp = nullptr) : ptr(tmp) { }			//Конструктор с одним параметром
 		Iterator operator ++ (int)										//Перемещение на сделующий элемент
 		{
@@ -157,12 +158,12 @@ public:
 		cQueueUnit<T>* temp = q.head;
 		while (temp)
 		{
-			cout << temp->data << endl;									//Почленный вывод элементов
+			os << temp->data << endl;									//Почленный вывод элементов
 			temp = temp->next;
 		}
 		if (q.empty())
 		{
-			cout << "Queue is empty" << endl;
+			os << "Queue is empty" << endl;
 		}
 		return os;
 	}

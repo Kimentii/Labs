@@ -4,14 +4,14 @@
 #include "TourBisn.h"
 #define MENU cout << "What do you want to do?" << endl << "1 - Show struct" << endl << "2 - Change name" << endl << "3 - Change surname" << endl << "4 - Change middle name" << endl << "5 - Chenge year of birth" << endl;
 void StructMenu(Human& el)
-{
+{													//Работа с классом человека
 	char s[SIZE];
 	int x, buf;
 	cout.setf(ios::left);
 	system("cls");
 	do
 	{
-		MENU
+		MENU										//Вывод меню
 		cout << "0 - exit" << endl;
 		cout << "Your choice: ";
 		x = InputInt(cin, 0, 5);
@@ -49,14 +49,14 @@ void StructMenu(Human& el)
 	} while (x);
 }
 void StructMenu(Businessman& el)
-{
+{													//Работа с классом бизнесмена
 	char s[SIZE];
 	int x, buf;
 	cout.setf(ios::left);
 	system("cls");
 	do
 	{
-		MENU
+		MENU										//Вывод меню
 		cout << "6 - Change license number" << endl;
 		cout << "0 - exit" << endl;
 		cout << "Your choice: ";
@@ -101,14 +101,14 @@ void StructMenu(Businessman& el)
 	} while (x);
 }
 void StructMenu(Tourist& el)
-{
+{													//Работа с классом туриста
 	char s[SIZE];
 	int x, buf;
 	cout.setf(ios::left);
 	system("cls");
 	do
 	{
-		MENU
+		MENU										//Вывод меню
 		cout << "6 - Change passport ID" << endl;
 		cout << "0 - exit" << endl;
 		cout << "Your choice: ";
@@ -153,16 +153,16 @@ void StructMenu(Tourist& el)
 	} while (x);
 }
 void StructMenu(TourBisn& el)
-{
+{													//Работа с классом туриста-бизнесмена
 	char s[SIZE];
 	int x, buf;
 	cout.setf(ios::left);
 	system("cls");
 	do
 	{
-		MENU
+		MENU										//Вывод меню
 		cout << "6 - Change license number" << endl;
-		cout << "7 - Change license number" << endl;
+		cout << "7 - Change passpord ID" << endl;
 		cout << "0 - exit" << endl;
 		cout << "Your choice: ";
 		x = InputInt(cin, 0, 7);

@@ -44,15 +44,15 @@ void IteratorMenu(cQueue<T>& cQ)
 		x = InputInt(cin, 0, 15);							//Ввод выбора
 		switch (x)											//Вызов выбранной функции
 		{
-		case 1:
+		case 1:												//Установление итератора в начало
 			system("cls");
 			it = cQ.begin();
 			break;
-		case 2:
+		case 2:												//Установление итератора в конец
 			system("cls");
 			it = cQ.rbegin();
 			break;
-		case 3:
+		case 3:												//Вывод элемента итератора
 			system("cls");
 			try
 			{
@@ -64,15 +64,15 @@ void IteratorMenu(cQueue<T>& cQ)
 				cout << we.what() << endl;
 			}
 			break;
-		case 4:
+		case 4:												//Инкримент иетратора
 			it++;
 			system("cls");
 			break;
-		case 5:
+		case 5:												//Декремент итератора
 			it--;
 			system("cls");
 			break;
-		case 6:
+		case 6:												//Вывод с начала до конца
 			system("cls");
 			cout << "Queue:" << endl;
 			for (cQueue<T>::Iterator it2 = cQ.begin(); it2 != cQ.end(); it2++)
@@ -80,7 +80,7 @@ void IteratorMenu(cQueue<T>& cQ)
 				cout << *it2 << endl;
 			}
 			break;
-		case 7:
+		case 7:												//Вывод с конца до начала
 			system("cls");
 			cout << "Queue:" << endl;
 			for (cQueue<T>::Iterator it2 = cQ.rbegin(); it2 != cQ.rend(); it2--)
@@ -88,35 +88,35 @@ void IteratorMenu(cQueue<T>& cQ)
 				cout << *it2 << endl;
 			}
 			break;
-		case 8:
+		case 8:												//Сортировка
 			Sort(cQ.begin(), cQ.end());
 			system("cls");
 			break;
-		case 9:
+		case 9:												//Перемешивание
 			Random_Shuffle(cQ.begin(), cQ.end());
 			system("cls");
 			break;
-		case 10:
+		case 10:											//Заполнение
 			system("cls");
 			Fill(cQ.begin(), cQ.end(), SafeInput<T>());
 			break;
-		case 11:
+		case 11:											//Поиск минимального
 			system("cls");
 			it = min_element(cQ.begin(), cQ.end());
 			break;
-		case 12:
+		case 12:											//Поиск максимального
 			system("cls");
 			it = max_element(cQ.begin(), cQ.end());
 			break;
-		case 13:
+		case 13:											//Поиск элемента
 			system("cls");
 			it = Find(cQ.begin(), cQ.end(), SafeInput<T>());
 			break;
-		case 14:
+		case 14:											//Подсчет элементов
 			system("cls");
 			cout << "There are " << Count(cQ.begin(), cQ.end(), SafeInput<T>()) << " elements" << endl;
 			break;
-		case 15:
+		case 15:											//Работа элементом(если можно)
 			system("cls");
 			try
 			{

@@ -5,6 +5,8 @@
 #include "Interface.cpp"
 #include "Exception.h"
 #include "SafeFunctions.h"
+#include <exception>
+#include <eh.h>
 void choise()
 {
 	int x;
