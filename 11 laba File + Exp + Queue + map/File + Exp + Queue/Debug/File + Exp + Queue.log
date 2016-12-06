@@ -1,0 +1,65 @@
+﻿  WorkWithFiles.cpp
+  Tourist.cpp
+  TextFile.cpp
+  SafeFunctions.cpp
+d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\safefunctions.cpp(62): warning C4018: >: несоответствие типов со знаком и без знака
+d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\safefunctions.cpp(92): warning C4018: >: несоответствие типов со знаком и без знака
+  Queue.cpp
+  Main.cpp
+d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\interface.cpp(15): warning C4101: element: неиспользованная локальная переменная
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\main.cpp(31): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void menu<int>(void)"
+d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\binaryfile.cpp(144): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\binaryfile.cpp(133): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\binaryfile.cpp(48): note: см. ссылку на создание экземпляров функции шаблон при компиляции "int BinaryFile<T>::size(void)"
+          with
+          [
+              T=int
+          ]
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\binaryfile.cpp(7): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\workwithfiles.cpp(10): note: см. ссылку на создание экземпляров функции шаблон при компиляции "BinaryFile<T>::BinaryFile(void)"
+          with
+          [
+              T=int
+          ]
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\workwithfiles.cpp(10): note: см. ссылку на создание экземпляров класса шаблон при компиляции "BinaryFile<T>"
+          with
+          [
+              T=int
+          ]
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\interface.cpp(84): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void bin_file_work<T>(cQueue<T> &)"
+          with
+          [
+              T=int
+          ]
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\main.cpp(31): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void menu<int>(void)"
+d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\textfile.cpp(175): warning C4244: =: преобразование "std::streamoff" в "int", возможна потеря данных
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\textfile.cpp(164): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\textfile.cpp(46): note: см. ссылку на создание экземпляров функции шаблон при компиляции "int TextFile<T>::size(void)"
+          with
+          [
+              T=int
+          ]
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\textfile.cpp(5): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\workwithfiles.cpp(119): note: см. ссылку на создание экземпляров функции шаблон при компиляции "TextFile<T>::TextFile(void)"
+          with
+          [
+              T=int
+          ]
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\workwithfiles.cpp(119): note: см. ссылку на создание экземпляров класса шаблон при компиляции "TextFile<T>"
+          with
+          [
+              T=int
+          ]
+  d:\предметы\3 сем\кпияп\мои лабы\labs\11 laba file + exp + queue + map\file + exp + queue\interface.cpp(88): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void text_file_work<T>(cQueue<T> &)"
+          with
+          [
+              T=int
+          ]
+  Interface.cpp
+  Human.cpp
+  File.cpp
+  Businessman.cpp
+  BinaryFile.cpp
+  Создание кода...
+  File + Exp + Queue.vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\11 laba File + Exp + Queue + map\Debug\File + Exp + Queue.exe
+  File + Exp + Queue.vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\11 laba File + Exp + Queue + map\Debug\File + Exp + Queue.pdb (Full PDB)

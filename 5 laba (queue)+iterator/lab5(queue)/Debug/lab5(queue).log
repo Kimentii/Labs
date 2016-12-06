@@ -1,0 +1,19 @@
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (lab5(queue).vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  Queue.cpp
+  menu.cpp
+  Main.cpp
+  Создание кода...
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(153): warning C4715: cQueue<int>::PopBack: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(134): warning C4715: cQueue<int>::PopFront: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(153): warning C4715: cQueue<double>::PopBack: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(134): warning C4715: cQueue<double>::PopFront: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(134): warning C4715: cQueue<char>::PopFront: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(153): warning C4715: cQueue<char>::PopBack: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(153): warning C4715: cQueue<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::PopBack: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.cpp(134): warning C4715: cQueue<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::PopFront: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.h(56): warning C4715: cQueue<int>::Iterator::operator*: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.h(56): warning C4715: cQueue<double>::Iterator::operator*: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.h(56): warning C4715: cQueue<char>::Iterator::operator*: значение возвращается не при всех путях выполнения
+d:\предметы\3 сем\кпияп\мои лабы\labs\5 laba (queue)+iterator\lab5(queue)\queue.h(56): warning C4715: cQueue<std::basic_string<char,std::char_traits<char>,std::allocator<char> > >::Iterator::operator*: значение возвращается не при всех путях выполнения
+  lab5(queue).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\5 laba (queue)+iterator\Debug\lab5(queue)+iterator.exe
+  lab5(queue).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\5 laba (queue)+iterator\Debug\lab5(queue)+iterator.pdb (Full PDB)

@@ -1,7 +1,0 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (lab5(queue).vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  menu.cpp
-  Создание кода...
-  Пропуск... (изменения не обнаружены)
-  Main.cpp
-  lab5(queue).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\Debug\lab5(queue)+iterator.exe
-  lab5(queue).vcxproj -> D:\Предметы\3 сем\КПиЯП\Мои Лабы\Labs\lab5(queue)+iterator\Debug\lab5(queue)+iterator.pdb (Full PDB)

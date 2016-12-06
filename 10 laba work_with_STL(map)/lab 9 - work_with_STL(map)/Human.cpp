@@ -1,0 +1,84 @@
+#include "Human.h"
+#include "Exception.h"
+#include "SafeFunctions.h"
+Human::Human(const char* n, const char* sn, const char* mn, int y) : m_YearOfBirth(y)
+{																	//Конструктор
+	strcpy(m_Name, n);
+	strcpy(m_SurName, sn);
+	strcpy(m_MiddleName, mn);
+	cout << "Human constructor" << endl;
+}
+const char* const Human::GetName()									//Возвращение имени
+{
+	return m_Name;
+}
+const char* const Human::GetSurName()								//Возвращение фамилии
+{
+	return m_SurName;
+}
+const char* const Human::GetMiddleName()							//Возвращение отчества
+{
+	return m_MiddleName;
+}
+int Human::GetYear()												//Возвращение года рождения
+{
+	return m_YearOfBirth;
+}
+void Human::SetName(const char* n)									//Изменение имени
+{
+	strcpy(m_Name, n);
+}
+void Human::SetSurName(const char* sn)								//Изменение фамилии
+{
+	strcpy(m_SurName, sn);
+}
+void Human::SetMiddleName(const char* mn)							//Изменение отчества
+{
+	strcpy(m_MiddleName, mn);
+}
+void Human::SetYearOfBirth(int y)									//Изменение года рождения
+{
+	m_YearOfBirth = y;
+}
+ostream& operator << (ostream& os, const Human& aHum)				//Перегрузка вывода
+{
+	os << setw(IND) << "Name" << setw(IND) << "Surname" << setw(IND) << "Middle name" << setw(IND) << "Year of birth" << endl;
+	os << setw(IND) << aHum.m_Name;
+	os << setw(IND) << aHum.m_SurName;
+	os << setw(IND) << aHum.m_MiddleName;
+	os << setw(IND) << aHum.m_YearOfBirth;
+	os << endl;
+	return os;
+}
+istream& operator >> (istream& is, Human& aHum)						//Перегрузка ввода
+{
+	cout << "Enter name: ";
+	InputString(is, aHum.m_Name, SIZE);
+	cout << "Enter surname: ";
+	InputString(is, aHum.m_SurName, SIZE);
+	cout << "Enter middle name: ";
+	InputString(is, aHum.m_MiddleName, SIZE);
+	cout << "Enter year of birth: ";
+	aHum.m_YearOfBirth = InputInt(is, 1800, 2050);
+	return is;
+}
+bool Human::operator == (const Human& aHum)							//Перегрузка ==
+{
+	if (!strcmp(m_MiddleName, aHum.m_MiddleName)) return true;
+	else return false;
+}
+bool Human::operator != (const Human& aHum)							//Перегрузка !=
+{
+	if (strcmp(m_MiddleName, aHum.m_MiddleName)) return true;
+	else return false;
+}
+bool Human::operator > (const Human& aHum)							//Перегрузка >
+{
+	if (strcmp(m_MiddleName, aHum.m_MiddleName) > 0) return true;
+	else return false;
+}
+bool Human::operator < (const Human& aHum)							//Перегрузка <
+{
+	if (strcmp(m_MiddleName, aHum.m_MiddleName) < 0) return true;
+	else return false;
+}
